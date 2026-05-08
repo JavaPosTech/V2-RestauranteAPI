@@ -1,13 +1,12 @@
-package br.com.fiap.api;
+package br.com.fiap.restauranteapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Fase212AdjtApplication {
+public class RestauranteAPIApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Fase212AdjtApplication.class, args);
+		SpringApplication.run(RestauranteAPIApplication.class, args);
 	}
-
 }
