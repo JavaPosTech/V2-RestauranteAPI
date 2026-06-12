@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.config;
+package br.com.fiap.restauranteapi.infrastructure.database;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
