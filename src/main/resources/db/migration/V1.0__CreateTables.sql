@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS public.restaurante (
     FOREIGN KEY (id_tipocozinha) REFERENCES public.tipo_cozinha(id)
 );
 
-CREATE TABLE IF NOT EXISTS public.restaurante_cardapio (
+CREATE TABLE IF NOT EXISTS public.cardapio (
     id SERIAL PRIMARY KEY,
     id_restaurante INTEGER NOT NULL,
     nome VARCHAR(50) NOT NULL,
