@@ -1,0 +1,28 @@
+package br.com.fiap.restauranteapi.domain.usuario;
+
+import br.com.fiap.restauranteapi.config.AbstractTest;
+import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import java.time.LocalDateTime;
+
+@SpringBootTest
+class UsuarioTest extends AbstractTest {
+
+    @Test
+    void domainTest() {
+        Usuario usuario = new Usuario(
+                1,
+                "TESTE",
+                "TESTE",
+                2,
+                LocalDateTime.now());
+
+        Assertions.assertEquals(1, usuario.id());
+        Assertions.assertEquals("TESTE", usuario.nome());
+        Assertions.assertEquals("TESTE", usuario.descricao());
+        Assertions.assertEquals(2, usuario.tipoUsuarioId());
+    }
+}

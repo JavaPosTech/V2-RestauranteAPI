@@ -24,7 +24,7 @@ class TipoUsuarioControllerTest extends AbstractControllerTest {
     @Test
     void atualizarTest() throws Exception {
         String atualizarTipoUsuario = new String(Files.readAllBytes(Paths.get("src/test/resources/tipousuario/atualizarTipoUsuario.json")));
-        testPost("/v1/tipousuario", atualizarTipoUsuario);
+        testPatch("/v1/tipousuario/1", atualizarTipoUsuario);
     }
 
     @Test

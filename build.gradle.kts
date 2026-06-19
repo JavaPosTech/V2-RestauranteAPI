@@ -88,9 +88,9 @@ tasks.named<JacocoReport>("jacocoTestReport") {
 					exclude(
 						"**/core/dto/**",
 						"**/application/**",
-						"**/infra/entity/**",
 						"**/infra/config/**",
 						"**/core/exceptions/**",
+						"**/infra/adapter/entity/**",
 						"**/RestauranteAPIApplication.class"
 					)
 				}
