@@ -9,4 +9,6 @@ public interface TipoUsuarioRepository extends JpaRepository<TipoUsuarioEntity, 
 
     boolean existsByDescricao(String descricao);
 
+    boolean existsByDescricaoAndIdNot(String descricao, Integer id);
+
 }

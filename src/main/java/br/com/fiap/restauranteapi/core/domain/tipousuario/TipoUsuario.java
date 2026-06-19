@@ -8,6 +8,10 @@ public record TipoUsuario(
 
 ) {
     public static TipoUsuario toDomain(String descricao) {
-        return new TipoUsuario(null, descricao);
+        if (descricao == null || descricao.isBlank()) {
+            throw new IllegalArgumentException("A descrição do Tipo de Usuário é obrigatória!");
+        }
+
+        return new TipoUsuario(null, descricao.toUpperCase());
     }
 }

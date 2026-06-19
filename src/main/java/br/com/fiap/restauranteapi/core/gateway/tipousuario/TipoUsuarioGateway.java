@@ -12,6 +12,8 @@ public interface TipoUsuarioGateway {
 
     boolean existsByDescricao(String descricao);
 
+    boolean existsByDescricaoAndIdNot(String descricao, Integer id);
+
     void save(TipoUsuario tipoUsuario);
 
     void deleteById(Integer id);

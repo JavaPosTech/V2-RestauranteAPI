@@ -38,6 +38,12 @@ public class TipoUsuarioJpaGateway implements TipoUsuarioGateway {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public boolean existsByDescricaoAndIdNot(String descricao, Integer id) {
+        return tipoUsuarioRepository.existsByDescricaoAndIdNot(descricao, id);
+    }
+
+    @Override
     @Transactional
     public void save(TipoUsuario tipoUsuario) {
         tipoUsuarioRepository.save(TipoUsuarioEntity.fromDomain(tipoUsuario));

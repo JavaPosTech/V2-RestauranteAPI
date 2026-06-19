@@ -18,8 +18,8 @@ public class AtualizarTipoUsuarioUseCase {
             throw new ResourceNotFoundException("O Tipo Usuário solicitado não foi encontrado!");
         }
 
-        if (tipoUsuario.descricao() == null || tipoUsuario.descricao().isBlank()) {
-            throw new BusinessException("A descrição do Tipo de Usuário é obrigatória!");
+        if (tipoUsuarioGateway.existsByDescricaoAndIdNot(tipoUsuario.descricao(), id)) {
+            throw new BusinessException("Já existe um Tipo de Usuário com a descrição informada!");
         }
 
         tipoUsuarioGateway.save(new TipoUsuario(id, tipoUsuario.descricao()));

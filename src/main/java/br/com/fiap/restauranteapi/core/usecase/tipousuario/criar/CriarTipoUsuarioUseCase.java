@@ -13,10 +13,6 @@ public class CriarTipoUsuarioUseCase {
     }
 
     public void executar(TipoUsuario tipoUsuario) {
-        if (tipoUsuario.descricao() == null || tipoUsuario.descricao().isBlank()) {
-            throw new BusinessException("A descrição do Tipo de Usuário é obrigatória!");
-        }
-
         if (tipoUsuarioGateway.existsByDescricao(tipoUsuario.descricao())) {
             throw new BusinessException("Tipo de Usuário já cadastrado com essa descrição!");
         }
