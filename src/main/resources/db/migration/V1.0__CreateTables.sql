@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS public.tipo_cozinha (
     descricao VARCHAR(50) NOT NULL UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS public.usuario (
+CREATE TABLE IF NOT EXISTS public.usuarioEntity (
     id SERIAL PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     sobrenome VARCHAR(100) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS public.restaurante (
     hora_abertura TIME NOT NULL,
     hora_fechamento TIME NOT NULL,
     data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES public.usuario(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_usuario) REFERENCES public.usuarioEntity(id) ON DELETE CASCADE,
     FOREIGN KEY (id_tipocozinha) REFERENCES public.tipo_cozinha(id)
 );
 

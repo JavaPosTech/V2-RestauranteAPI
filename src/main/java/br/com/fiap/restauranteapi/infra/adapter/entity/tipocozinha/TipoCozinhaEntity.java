@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.infra.adapter.entity.tipousuario;
+package br.com.fiap.restauranteapi.infra.adapter.entity.tipocozinha;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -8,8 +8,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "tipo_usuario", schema = "public")
-public class TipoUsuario {
+@Table(name = "tipo_cozinha", schema = "public")
+public class TipoCozinhaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
