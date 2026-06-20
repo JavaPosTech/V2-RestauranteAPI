@@ -2,11 +2,13 @@ package br.com.fiap.restauranteapi.infra.controller;
 
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.dto.request.TipoUsuarioRequest;
+import br.com.fiap.restauranteapi.core.dto.response.SuccessMessageResponse;
 import br.com.fiap.restauranteapi.core.usecase.tipousuario.atualizar.AtualizarTipoUsuarioUseCase;
 import br.com.fiap.restauranteapi.core.usecase.tipousuario.criar.CriarTipoUsuarioUseCase;
 import br.com.fiap.restauranteapi.core.usecase.tipousuario.deletar.DeletarTipoUsuarioUseCase;
 import br.com.fiap.restauranteapi.core.usecase.tipousuario.listar.ListarTipoUsuarioUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,9 +33,8 @@ public class TipoUsuarioController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> salvar(@RequestBody TipoUsuarioRequest tipoUsuarioRequest) {
-        criarTipoUsuarioUseCase.executar(TipoUsuario.toDomain(tipoUsuarioRequest.descricao()));
-        return ResponseEntity.status(201).build();
+    public ResponseEntity<SuccessMessageResponse> salvar(@RequestBody TipoUsuarioRequest tipoUsuarioRequest) {
+        return ResponseEntity.status(HttpStatus.CREATED.value()).body(criarTipoUsuarioUseCase.executar(TipoUsuario.toDomain(tipoUsuarioRequest.descricao())));
     }
 
     @PatchMapping("/{id}")

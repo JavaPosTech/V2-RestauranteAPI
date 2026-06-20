@@ -11,10 +11,10 @@ public record ErrorResponseDTO(
 
         int status,
 
-        String title,
-
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy - HH:mm:ss")
         LocalDateTime timestamp,
+
+        String title,
 
         String instance,
 
@@ -26,10 +26,10 @@ public record ErrorResponseDTO(
 
 ) {
     public ErrorResponseDTO(int pStatus, String pTitle, String pInstance, String pType, String pDetail, Object pErrors) {
-        this(pStatus, pTitle, LocalDateTime.now(), pInstance, URI.create(pType), pDetail, pErrors);
+        this(pStatus, LocalDateTime.now(), pTitle, pInstance, URI.create(pType), pDetail, pErrors);
     }
 
     public ErrorResponseDTO(int pStatus, String pTitle, String pInstance, String pType, String pDetail) {
-        this(pStatus, pTitle, LocalDateTime.now(), pInstance, URI.create(pType), pDetail, null);
+        this(pStatus, LocalDateTime.now(), pTitle, pInstance, URI.create(pType), pDetail, null);
     }
 }

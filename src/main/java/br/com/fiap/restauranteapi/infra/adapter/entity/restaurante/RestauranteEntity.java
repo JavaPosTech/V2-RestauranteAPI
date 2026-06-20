@@ -31,9 +31,9 @@ public class RestauranteEntity {
     @Column(nullable = false, length = 100)
     private String endereco;
 
-    @NotNull
-    @Column(name = "id_tipocozinha", nullable = false)
-    private Integer tipoCozinhaId;
+    @NotBlank
+    @Column(name = "tipocozinha", length = 50, nullable = false)
+    private String tipoCozinha;
 
     @Column(name = "hora_abertura", nullable = false)
     private LocalTime horaAbertura;

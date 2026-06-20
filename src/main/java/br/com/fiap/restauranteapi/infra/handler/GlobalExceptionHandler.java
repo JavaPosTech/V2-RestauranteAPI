@@ -1,5 +1,6 @@
 package br.com.fiap.restauranteapi.infra.handler;
 
+import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.infra.handler.dto.ErrorResponseDTO;
 import br.com.fiap.restauranteapi.infra.handler.dto.MethodArgumentNotValidResponseDTO;
@@ -65,6 +66,20 @@ public class GlobalExceptionHandler {
                 ex.getMessage());
 
         return ResponseEntity.badRequest().body(response);
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ErrorResponseDTO> handleBusinessException(BusinessException ex, HttpServletRequest request) {
+
+        ErrorResponseDTO response = new ErrorResponseDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                "Violação de Regra de Negócio",
+                request.getRequestURI(),
+                "/RestauranteAPI/problems/business-rule-violation",
+                "A requisição não pode ser processada devido a violação das regras de negócio!",
+                ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
     @ExceptionHandler(RegistroNaoEncontradoException.class)
