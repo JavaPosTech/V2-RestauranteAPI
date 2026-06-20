@@ -2,7 +2,7 @@ package br.com.fiap.restauranteapi.core.usecase.tipousuario.atualizar;
 
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
-import br.com.fiap.restauranteapi.core.exceptions.ResourceNotFoundException;
+import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.gateway.tipousuario.TipoUsuarioGateway;
 
 public class AtualizarTipoUsuarioUseCase {
@@ -15,7 +15,7 @@ public class AtualizarTipoUsuarioUseCase {
 
     public void executar(Integer id, TipoUsuario tipoUsuario) {
         if (tipoUsuarioGateway.findById(id).isEmpty()) {
-            throw new ResourceNotFoundException("O Tipo Usuário solicitado não foi encontrado!");
+            throw new RegistroNaoEncontradoException("O Tipo Usuário solicitado não foi encontrado!");
         }
 
         if (tipoUsuarioGateway.existsByDescricaoAndIdNot(tipoUsuario.descricao(), id)) {

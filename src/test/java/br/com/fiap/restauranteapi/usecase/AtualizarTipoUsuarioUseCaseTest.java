@@ -3,7 +3,7 @@ package br.com.fiap.restauranteapi.usecase;
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
-import br.com.fiap.restauranteapi.core.exceptions.ResourceNotFoundException;
+import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.usecase.tipousuario.atualizar.AtualizarTipoUsuarioUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,7 +23,7 @@ class AtualizarTipoUsuarioUseCaseTest extends AbstractTest {
 
     @Test
     void executarTestComIdInexistente() {
-        Assertions.assertThrows(ResourceNotFoundException.class, () -> atualizarTipoUsuarioUseCase.executar(999, new TipoUsuario(null, "ADMIN TESTE")));
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarTipoUsuarioUseCase.executar(999, new TipoUsuario(null, "ADMIN TESTE")));
     }
 
     @Test

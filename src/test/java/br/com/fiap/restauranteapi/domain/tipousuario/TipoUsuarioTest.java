@@ -2,6 +2,7 @@ package br.com.fiap.restauranteapi.domain.tipousuario;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
+import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,11 +25,11 @@ class TipoUsuarioTest extends AbstractTest {
 
     @Test
     void toDomainComDescricaoNullTest() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TipoUsuario.toDomain(null));
+        Assertions.assertThrows(BusinessException.class, () -> TipoUsuario.toDomain(null));
     }
 
     @Test
     void toDomainComDescricaoVaziaTest() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> TipoUsuario.toDomain(""));
+        Assertions.assertThrows(BusinessException.class, () -> TipoUsuario.toDomain(""));
     }
 }

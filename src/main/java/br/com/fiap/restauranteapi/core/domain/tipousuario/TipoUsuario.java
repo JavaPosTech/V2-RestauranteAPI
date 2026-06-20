@@ -1,5 +1,7 @@
 package br.com.fiap.restauranteapi.core.domain.tipousuario;
 
+import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
+
 public record TipoUsuario(
 
         Integer id,
@@ -9,7 +11,7 @@ public record TipoUsuario(
 ) {
     public static TipoUsuario toDomain(String descricao) {
         if (descricao == null || descricao.isBlank()) {
-            throw new IllegalArgumentException("A descrição do Tipo de Usuário é obrigatória!");
+            throw new BusinessException("A descrição do Tipo de Usuário é obrigatória!");
         }
 
         return new TipoUsuario(null, descricao.toUpperCase());

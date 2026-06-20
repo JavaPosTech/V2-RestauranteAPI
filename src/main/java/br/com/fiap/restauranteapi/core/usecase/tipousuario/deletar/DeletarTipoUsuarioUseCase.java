@@ -1,7 +1,7 @@
 package br.com.fiap.restauranteapi.core.usecase.tipousuario.deletar;
 
 import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
-import br.com.fiap.restauranteapi.core.exceptions.ResourceNotFoundException;
+import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.gateway.tipousuario.TipoUsuarioGateway;
 
 public class DeletarTipoUsuarioUseCase {
@@ -18,7 +18,7 @@ public class DeletarTipoUsuarioUseCase {
         }
 
         if (tipoUsuarioGateway.findById(id).isEmpty()) {
-            throw new ResourceNotFoundException("O Tipo de Usuário solicitado não foi encontrado!");
+            throw new RegistroNaoEncontradoException("O Tipo de Usuário solicitado não foi encontrado!");
         }
 
         tipoUsuarioGateway.deleteById(id);

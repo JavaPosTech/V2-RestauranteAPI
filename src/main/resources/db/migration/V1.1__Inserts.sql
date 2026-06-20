@@ -8,7 +8,7 @@ INSERT INTO public.tipo_cozinha (descricao) VALUES
 ('MEXICANA'),
 ('BRASILEIRA');
 
-INSERT INTO public.usuarioEntity (nome, sobrenome, id_tipousuario) VALUES
+INSERT INTO public.usuario (nome, sobrenome, id_tipousuario) VALUES
 ('GUSTAVO', 'CORREA', 2),
 ('ROBERTO', 'LOCATELLI', 2),
 ('EDUARDO', 'GERMANO', 1),
