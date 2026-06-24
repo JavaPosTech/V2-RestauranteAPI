@@ -89,6 +89,7 @@ tasks.named<JacocoReport>("jacocoTestReport") {
 						"**/core/dto/**",
 						"**/application/**",
 						"**/infra/config/**",
+						"**/infra/handler/**",
 						"**/core/exceptions/**",
 						"**/infra/adapter/entity/**",
 						"**/RestauranteAPIApplication.class"

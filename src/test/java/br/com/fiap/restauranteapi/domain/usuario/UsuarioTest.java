@@ -22,7 +22,7 @@ class UsuarioTest extends AbstractTest {
 
         Assertions.assertEquals(1, usuario.id());
         Assertions.assertEquals("TESTE", usuario.nome());
-        Assertions.assertEquals("TESTE", usuario.descricao());
+        Assertions.assertEquals("TESTE", usuario.sobrenome());
         Assertions.assertEquals(2, usuario.tipoUsuarioId());
     }
 }
