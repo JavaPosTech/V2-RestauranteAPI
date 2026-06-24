@@ -1,10 +1,12 @@
 package br.com.fiap.restauranteapi.core.domain.restaurante;
 
+import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
+
 public record Restaurante(
 
         Integer id,
 
-        Integer usuarioId,
+        Usuario usuario,
 
         String nome,
 

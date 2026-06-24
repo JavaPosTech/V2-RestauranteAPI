@@ -8,7 +8,7 @@ public record Usuario(
 
         String nome,
 
-        String descricao,
+        String sobrenome,
 
         Integer tipoUsuarioId,
 

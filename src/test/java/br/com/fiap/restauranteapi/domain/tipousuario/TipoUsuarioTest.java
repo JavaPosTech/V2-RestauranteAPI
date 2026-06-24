@@ -2,7 +2,7 @@ package br.com.fiap.restauranteapi.domain.tipousuario;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
-import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
+import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,17 +19,17 @@ class TipoUsuarioTest extends AbstractTest {
     }
 
     @Test
-    void toDomainTest() {
-        Assertions.assertDoesNotThrow(() -> TipoUsuario.toDomain("TESTE"));
+    void criarTest() {
+        Assertions.assertDoesNotThrow(() -> TipoUsuario.criar("TESTE"));
     }
 
     @Test
-    void toDomainComDescricaoNullTest() {
-        Assertions.assertThrows(BusinessException.class, () -> TipoUsuario.toDomain(null));
+    void criarComDescricaoNullTest() {
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> TipoUsuario.criar(null));
     }
 
     @Test
-    void toDomainComDescricaoVaziaTest() {
-        Assertions.assertThrows(BusinessException.class, () -> TipoUsuario.toDomain(""));
+    void criarComDescricaoVaziaTest() {
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> TipoUsuario.criar(""));
     }
 }

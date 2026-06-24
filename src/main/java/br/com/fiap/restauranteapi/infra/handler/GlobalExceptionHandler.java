@@ -1,6 +1,6 @@
 package br.com.fiap.restauranteapi.infra.handler;
 
-import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
+import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.infra.handler.dto.ErrorResponseDTO;
 import br.com.fiap.restauranteapi.infra.handler.dto.MethodArgumentNotValidResponseDTO;
@@ -68,8 +68,8 @@ public class GlobalExceptionHandler {
         return ResponseEntity.badRequest().body(response);
     }
 
-    @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<ErrorResponseDTO> handleBusinessException(BusinessException ex, HttpServletRequest request) {
+    @ExceptionHandler(RegraDeNegocioException.class)
+    public ResponseEntity<ErrorResponseDTO> handleBusinessException(RegraDeNegocioException ex, HttpServletRequest request) {
 
         ErrorResponseDTO response = new ErrorResponseDTO(
                 HttpStatus.BAD_REQUEST.value(),

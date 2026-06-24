@@ -2,7 +2,7 @@ package br.com.fiap.restauranteapi.usecase;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
-import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
+import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.usecase.tipousuario.criar.CriarTipoUsuarioUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -22,6 +22,6 @@ class CriarTipoUsuarioUseCaseTest extends AbstractTest {
 
     @Test
     void executarTestComDescricaoJaCadastrada() {
-        Assertions.assertThrows(BusinessException.class, () -> criarTipoUsuarioUseCase.executar(new TipoUsuario(null, "CLIENTE")));
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> criarTipoUsuarioUseCase.executar(new TipoUsuario(null, "CLIENTE")));
     }
 }

@@ -1,7 +1,7 @@
 package br.com.fiap.restauranteapi.usecase;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
-import br.com.fiap.restauranteapi.core.exceptions.BusinessException;
+import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.usecase.tipousuario.deletar.DeletarTipoUsuarioUseCase;
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +22,7 @@ class DeletarTipoUsuarioUseCaseTest extends AbstractTest {
 
     @Test
     void executarTestComIdNull() {
-        Assertions.assertThrows(BusinessException.class, () -> deletarTipoUsuarioUseCase.executar(null));
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> deletarTipoUsuarioUseCase.executar(null));
     }
 
     @Test
