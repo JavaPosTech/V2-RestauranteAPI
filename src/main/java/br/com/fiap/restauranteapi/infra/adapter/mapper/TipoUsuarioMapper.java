@@ -6,6 +6,8 @@ import br.com.fiap.restauranteapi.infra.controller.dto.TipoUsuarioRequest;
 
 public class TipoUsuarioMapper {
 
+    private TipoUsuarioMapper() {}
+
     public static TipoUsuario toDomain(TipoUsuarioRequest request) {
         return TipoUsuario.criar(request.descricao());
     }
@@ -17,8 +19,8 @@ public class TipoUsuarioMapper {
     public static TipoUsuarioEntity toEntity(TipoUsuario domain) {
         TipoUsuarioEntity entity = new TipoUsuarioEntity();
 
-        entity.setId(domain.id());
-        entity.setDescricao(domain.descricao());
+        entity.setId(domain.getId());
+        entity.setDescricao(domain.getDescricao());
 
         return entity;
     }

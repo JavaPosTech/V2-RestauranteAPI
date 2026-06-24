@@ -1,17 +1,22 @@
 package br.com.fiap.restauranteapi.core.domain.usuario;
 
+import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import java.time.LocalDateTime;
 
-public record Usuario(
+@Getter
+@AllArgsConstructor
+public class Usuario {
 
-        Integer id,
+    private Integer id;
 
-        String nome,
+    private String nome;
 
-        String sobrenome,
+    private String sobrenome;
 
-        Integer tipoUsuarioId,
+    private TipoUsuario tipoUsuario;
 
-        LocalDateTime dataCriacao
+    private LocalDateTime dataCriacao;
 
-) {}
+}

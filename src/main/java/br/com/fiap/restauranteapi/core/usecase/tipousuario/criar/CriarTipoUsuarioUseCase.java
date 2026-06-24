@@ -22,8 +22,8 @@ public class CriarTipoUsuarioUseCase {
     }
 
     private void validarDescricaoUnica(TipoUsuario tipoUsuario) {
-        if (tipoUsuarioGateway.existsByDescricao(tipoUsuario.descricao())) {
-            log.error("Tipo de Usuário já cadastrado com essa descrição: {}", tipoUsuario.descricao());
+        if (tipoUsuarioGateway.existsByDescricao(tipoUsuario.getDescricao())) {
+            log.error("Tipo de Usuário já cadastrado com essa descrição: {}", tipoUsuario.getDescricao());
             throw new RegraDeNegocioException("Tipo de Usuário já cadastrado com essa descrição!");
         }
     }

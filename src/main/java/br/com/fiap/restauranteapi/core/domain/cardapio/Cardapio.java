@@ -1,21 +1,26 @@
 package br.com.fiap.restauranteapi.core.domain.cardapio;
 
+import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import java.math.BigDecimal;
 
-public record Cardapio(
+@Getter
+@AllArgsConstructor
+public class Cardapio {
 
-        Integer id,
+    private Integer id;
 
-        Integer restauranteId,
+    private Restaurante restaurante;
 
-        String nome,
+    private String nome;
 
-        String descricao,
+    private String descricao;
 
-        BigDecimal preco,
+    private BigDecimal preco;
 
-        boolean consumoLocal,
+    private boolean consumoLocal;
 
-        String foto
+    private String foto;
 
-) {}
+}

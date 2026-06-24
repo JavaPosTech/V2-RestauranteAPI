@@ -13,7 +13,7 @@ public class ListarTipoUsuarioUseCase {
 
     public List<TipoUsuarioDTO> executar() {
         return tipoUsuarioGateway.findAll().stream()
-                .map(tipoUsuario -> new TipoUsuarioDTO(tipoUsuario.id(), tipoUsuario.descricao()))
+                .map(tipoUsuario -> new TipoUsuarioDTO(tipoUsuario.getId(), tipoUsuario.getDescricao()))
                 .toList();
     }
 }

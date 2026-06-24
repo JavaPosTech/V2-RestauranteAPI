@@ -1,23 +1,27 @@
 package br.com.fiap.restauranteapi.core.domain.restaurante;
 
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-public record Restaurante(
+@Getter
+@AllArgsConstructor
+public class Restaurante {
 
-        Integer id,
+    private Integer id;
 
-        Usuario usuario,
+    private Usuario usuario;
 
-        String nome,
+    private String nome;
 
-        String endereco,
+    private String endereco;
 
-        Integer tipoCozinhaId,
+    private String tipoCozinha;
 
-        String horaAbertura,
+    private String horaAbertura;
 
-        String horaFechamento,
+    private String horaFechamento;
 
-        String dataCriacao
+    private String dataCriacao;
 
-) {}
+}

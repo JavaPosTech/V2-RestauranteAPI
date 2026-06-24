@@ -17,9 +17,9 @@ public class AtualizarTipoUsuarioUseCase {
     public MensagemSucessoResponse executar(Integer id, TipoUsuario tipoUsuario) {
         validarExistencia(id);
 
-        validarDescricaoUnica(tipoUsuario.descricao(), id);
+        validarDescricaoUnica(tipoUsuario.getDescricao(), id);
 
-        tipoUsuarioGateway.save(new TipoUsuario(id, tipoUsuario.descricao()));
+        tipoUsuarioGateway.save(new TipoUsuario(id, tipoUsuario.getDescricao()));
         return new MensagemSucessoResponse(200, "Tipo de Usuário atualizado com sucesso!");
     }
 

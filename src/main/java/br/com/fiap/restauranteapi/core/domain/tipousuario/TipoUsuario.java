@@ -1,22 +1,22 @@
 package br.com.fiap.restauranteapi.core.domain.tipousuario;
 
 import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
+import lombok.Getter;
 
-public record TipoUsuario(
+@Getter
+public class TipoUsuario {
 
-        Integer id,
+    private Integer id;
 
-        String descricao
+    private String descricao;
 
-) {
-
-    public TipoUsuario {
-
+    public TipoUsuario(Integer id, String descricao) {
         if (descricao == null || descricao.isBlank()) {
             throw new RegraDeNegocioException("A descrição do Tipo de Usuário é obrigatória!");
         }
 
-        descricao = descricao.toUpperCase();
+        this.id = id;
+        this.descricao = descricao.toUpperCase();
     }
 
     public static TipoUsuario criar(String descricao) {

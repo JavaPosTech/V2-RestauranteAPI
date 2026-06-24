@@ -14,8 +14,8 @@ class TipoUsuarioTest extends AbstractTest {
     void domainTest() {
         TipoUsuario tipoUsuario = new TipoUsuario(1, "TESTE");
 
-        Assertions.assertEquals(1, tipoUsuario.id());
-        Assertions.assertEquals("TESTE", tipoUsuario.descricao());
+        Assertions.assertEquals(1, tipoUsuario.getId());
+        Assertions.assertEquals("TESTE", tipoUsuario.getDescricao());
     }
 
     @Test

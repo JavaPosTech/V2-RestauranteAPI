@@ -1,6 +1,7 @@
 package br.com.fiap.restauranteapi.domain.usuario;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
+import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,12 +18,12 @@ class UsuarioTest extends AbstractTest {
                 1,
                 "TESTE",
                 "TESTE",
-                2,
+                new TipoUsuario(2, "TESTE"),
                 LocalDateTime.now());
 
-        Assertions.assertEquals(1, usuario.id());
-        Assertions.assertEquals("TESTE", usuario.nome());
-        Assertions.assertEquals("TESTE", usuario.sobrenome());
-        Assertions.assertEquals(2, usuario.tipoUsuarioId());
+        Assertions.assertEquals(1, usuario.getId());
+        Assertions.assertEquals("TESTE", usuario.getNome());
+        Assertions.assertEquals("TESTE", usuario.getSobrenome());
+        Assertions.assertEquals(2, usuario.getTipoUsuario().getId());
     }
 }
