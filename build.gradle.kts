@@ -86,10 +86,12 @@ tasks.named<JacocoReport>("jacocoTestReport") {
 			classDirectories.files.map {
 				fileTree(it) {
 					exclude(
-						"**/config/**",
-						"**/enums/**",
-						"**/exceptions/**",
-						"**/model/**",
+						"**/core/dto/**",
+						"**/application/**",
+						"**/infra/config/**",
+						"**/infra/handler/**",
+						"**/core/exceptions/**",
+						"**/infra/adapter/entity/**",
 						"**/RestauranteAPIApplication.class"
 					)
 				}

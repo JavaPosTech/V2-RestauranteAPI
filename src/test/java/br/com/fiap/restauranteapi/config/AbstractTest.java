@@ -1,6 +1,5 @@
 package br.com.fiap.restauranteapi.config;
 
-import br.com.fiap.restauranteapi.config.TestDataBaseConfig;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.context.annotation.Import;
