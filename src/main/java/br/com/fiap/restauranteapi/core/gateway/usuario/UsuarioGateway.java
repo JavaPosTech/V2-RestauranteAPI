@@ -6,4 +6,6 @@ public interface UsuarioGateway {
 
     void salvar(UsuarioEntity usuarioEntity);
 
+    boolean existsById(Integer id);
+
 }

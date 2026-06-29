@@ -24,4 +24,8 @@ public class Restaurante {
 
     private String dataCriacao;
 
+    public boolean pertenceAoUsuario(Integer usuarioId) {
+        return this.usuario.getId().equals(usuarioId);
+    }
+
 }
