@@ -13,22 +13,22 @@ public class RestauranteBean {
 
     @Bean
     public RestauranteAtualizarUseCase restauranteAtualizarUseCase(
-            RestauranteGateway restauranteGateway,
-            UsuarioGateway usuarioGateway) {
-        return new RestauranteAtualizarUseCase(restauranteGateway, usuarioGateway);
+            UsuarioGateway usuarioGateway,
+            RestauranteGateway restauranteGateway) {
+        return new RestauranteAtualizarUseCase(usuarioGateway, restauranteGateway);
     }
 
     @Bean
     public RestauranteDeletarUseCase restauranteDeletarUseCase(
-            RestauranteGateway restauranteGateway,
-            UsuarioGateway usuarioGateway) {
-        return new RestauranteDeletarUseCase(restauranteGateway, usuarioGateway);
+            UsuarioGateway usuarioGateway,
+            RestauranteGateway restauranteGateway) {
+        return new RestauranteDeletarUseCase(usuarioGateway, restauranteGateway);
     }
 
     @Bean
     public RestauranteController restauranteController(
-            RestauranteAtualizarUseCase restauranteAtualizarUseCase,
-            RestauranteDeletarUseCase restauranteDeletarUseCase) {
-        return new RestauranteController(restauranteAtualizarUseCase, restauranteDeletarUseCase);
+            RestauranteDeletarUseCase restauranteDeletarUseCase,
+            RestauranteAtualizarUseCase restauranteAtualizarUseCase) {
+        return new RestauranteController(restauranteDeletarUseCase, restauranteAtualizarUseCase);
     }
 }

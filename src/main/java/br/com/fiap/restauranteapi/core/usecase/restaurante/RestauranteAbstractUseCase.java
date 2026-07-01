@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.core.usecase.restaurante.deletar;
+package br.com.fiap.restauranteapi.core.usecase.restaurante;
 
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
@@ -10,39 +10,29 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
-public class RestauranteDeletarUseCase {
+public abstract class RestauranteAbstractUseCase {
 
-    private final UsuarioGateway usuarioGateway;
+    protected final UsuarioGateway usuarioGateway;
 
-    private final RestauranteGateway restauranteGateway;
+    protected final RestauranteGateway restauranteGateway;
 
-    public void executar(Integer id, Integer usuarioId) {
-        validarUsuarioExistencia(usuarioId);
-
-        Restaurante restauranteExistente = buscarRestaurantePorId(id);
-
-        validarDonoRestaurante(restauranteExistente, usuarioId);
-
-        restauranteGateway.deleteById(id);
-    }
-
-    private void validarUsuarioExistencia(Integer usuarioId) {
+    protected void validarUsuarioExistencia(Integer usuarioId) {
         if (usuarioGateway.existsById(usuarioId)) {
             log.error("Usuário não encontrado! ID: {}", usuarioId);
             throw new RegistroNaoEncontradoException("Usuário não encontrado!");
         }
     }
 
-    private Restaurante buscarRestaurantePorId(Integer id) {
+    protected Restaurante buscarRestaurantePorId(Integer id) {
         return restauranteGateway.findById(id).orElseThrow(() -> {
             log.error("Restaurante não encontrado! ID: {}", id);
             return new RegistroNaoEncontradoException("Restaurante não encontrado!");
         });
     }
 
-    private void validarDonoRestaurante(Restaurante restaurante, Integer usuarioId) {
-        if (restaurante.pertenceAoUsuario(usuarioId)) {
-            log.error("Usuário {} tentou remover o Restaurante sem ser o Dono!", usuarioId);
+    protected void validarDonoRestaurante(Restaurante restauranteExistente, Integer usuarioId) {
+        if (restauranteExistente.pertenceAoUsuario(usuarioId)) {
+            log.error("Usuário {} tentou alterar o Restaurante sem ser o Dono!", usuarioId);
             throw new RegraDeNegocioException("Somente o Dono do Restaurante pode alterar ou remover o Restaurante!");
         }
     }

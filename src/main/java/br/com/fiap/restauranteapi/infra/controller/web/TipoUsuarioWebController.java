@@ -4,7 +4,7 @@ import br.com.fiap.restauranteapi.core.controller.TipoUsuarioController;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.core.dto.tipousuario.TipoUsuarioDTO;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.TipoUsuarioMapper;
-import br.com.fiap.restauranteapi.infra.controller.dto.TipoUsuarioRequest;
+import br.com.fiap.restauranteapi.infra.controller.dto.tipousuario.TipoUsuarioRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

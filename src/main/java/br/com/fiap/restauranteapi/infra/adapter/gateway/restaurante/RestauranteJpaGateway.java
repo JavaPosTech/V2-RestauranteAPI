@@ -24,7 +24,7 @@ public class RestauranteJpaGateway implements RestauranteGateway {
 
     @Override
     @Transactional
-    public void save(Restaurante restaurante, Integer id) {
+    public void save(Restaurante restaurante) {
         restauranteRepository.save(RestauranteMapper.toEntity(restaurante));
     }
 

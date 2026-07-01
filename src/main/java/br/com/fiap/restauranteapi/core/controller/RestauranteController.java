@@ -9,9 +9,9 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class RestauranteController {
 
-    private final RestauranteAtualizarUseCase restauranteAtualizarUseCase;
-
     private final RestauranteDeletarUseCase restauranteDeletarUseCase;
+
+    private final RestauranteAtualizarUseCase restauranteAtualizarUseCase;
 
     public MensagemSucessoResponse atualizar(Integer id, Restaurante restaurante) {
         return restauranteAtualizarUseCase.executar(id, restaurante);
@@ -20,5 +20,4 @@ public class RestauranteController {
     public void deletar(Integer id, Integer usuarioId) {
         restauranteDeletarUseCase.executar(id, usuarioId);
     }
-    
 }

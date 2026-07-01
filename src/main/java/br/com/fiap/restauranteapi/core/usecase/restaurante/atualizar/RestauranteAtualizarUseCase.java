@@ -13,17 +13,18 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class RestauranteAtualizarUseCase {
 
-    private final RestauranteGateway restauranteGateway;
     private final UsuarioGateway usuarioGateway;
+
+    private final RestauranteGateway restauranteGateway;
 
     public MensagemSucessoResponse executar(Integer id, Restaurante restaurante) {
         Integer usuarioId = restaurante.getUsuario().getId();
 
-        validarUsuarioExiste(usuarioId);
+        validarUsuarioExistencia(usuarioId);
 
-        Restaurante restauranteExistente = buscarOuLancarErro(id);
+        Restaurante restauranteExistente = buscarRestaurantePorId(id);
 
-        validarDono(restauranteExistente, usuarioId);
+        validarDonoRestaurante(restauranteExistente, usuarioId);
 
         restauranteGateway.save(new Restaurante(
                 id,
@@ -33,30 +34,29 @@ public class RestauranteAtualizarUseCase {
                 restaurante.getTipoCozinha(),
                 restaurante.getHoraAbertura(),
                 restaurante.getHoraFechamento(),
-                restauranteExistente.getDataCriacao()
-        ), id);
+                restauranteExistente.getDataCriacao()));
 
         return new MensagemSucessoResponse(200, "Restaurante atualizado com sucesso!");
     }
 
-    private void validarUsuarioExiste(Integer usuarioId) {
-        if (!usuarioGateway.existsById(usuarioId)) {
+    private void validarUsuarioExistencia(Integer usuarioId) {
+        if (usuarioGateway.existsById(usuarioId)) {
             log.error("Usuário não encontrado! ID: {}", usuarioId);
             throw new RegistroNaoEncontradoException("Usuário não encontrado!");
         }
     }
 
-    private Restaurante buscarOuLancarErro(Integer id) {
+    private Restaurante buscarRestaurantePorId(Integer id) {
         return restauranteGateway.findById(id).orElseThrow(() -> {
             log.error("Restaurante não encontrado! ID: {}", id);
             return new RegistroNaoEncontradoException("Restaurante não encontrado!");
         });
     }
 
-    private void validarDono(Restaurante restauranteExistente, Integer usuarioId) {
-        if (!restauranteExistente.pertenceAoUsuario(usuarioId)) {
-            log.error("Usuário {} tentou alterar o restaurante sem ser o dono!", usuarioId);
-            throw new RegraDeNegocioException("Somente o dono do restaurante pode alterar ou remover o restaurante!");
+    private void validarDonoRestaurante(Restaurante restauranteExistente, Integer usuarioId) {
+        if (restauranteExistente.pertenceAoUsuario(usuarioId)) {
+            log.error("Usuário {} tentou alterar o Restaurante sem ser o Dono!", usuarioId);
+            throw new RegraDeNegocioException("Somente o Dono do Restaurante pode alterar ou remover o Restaurante!");
         }
     }
 }

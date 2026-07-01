@@ -3,7 +3,7 @@ package br.com.fiap.restauranteapi.infra.adapter.mapper;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.infra.adapter.database.entity.restaurante.RestauranteEntity;
-import br.com.fiap.restauranteapi.infra.controller.dto.RestauranteRequest;
+import br.com.fiap.restauranteapi.infra.controller.dto.restaurante.RestauranteRequest;
 
 import java.time.LocalTime;
 
@@ -33,6 +33,7 @@ public class RestauranteMapper {
 
     public static RestauranteEntity toEntity(Restaurante domain) {
         RestauranteEntity entity = new RestauranteEntity();
+
         entity.setId(domain.getId());
         entity.setUsuarioId(domain.getUsuario().getId());
         entity.setNome(domain.getNome());
@@ -40,6 +41,7 @@ public class RestauranteMapper {
         entity.setTipoCozinha(domain.getTipoCozinha());
         entity.setHoraAbertura(LocalTime.parse(domain.getHoraAbertura()));
         entity.setHoraFechamento(LocalTime.parse(domain.getHoraFechamento()));
+
         return entity;
     }
 }

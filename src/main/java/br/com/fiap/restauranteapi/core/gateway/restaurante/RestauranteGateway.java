@@ -6,7 +6,7 @@ import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 
 public interface RestauranteGateway {
 
-    void save(Restaurante restaurante, Integer id);
+    void save(Restaurante restaurante);
 
     void deleteById(Integer id);
 
