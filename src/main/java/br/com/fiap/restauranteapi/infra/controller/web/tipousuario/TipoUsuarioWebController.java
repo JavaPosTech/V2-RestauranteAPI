@@ -1,9 +1,9 @@
-package br.com.fiap.restauranteapi.infra.controller.web;
+package br.com.fiap.restauranteapi.infra.controller.web.tipousuario;
 
 import br.com.fiap.restauranteapi.core.controller.TipoUsuarioController;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.core.dto.tipousuario.TipoUsuarioDTO;
-import br.com.fiap.restauranteapi.infra.adapter.mapper.TipoUsuarioMapper;
+import br.com.fiap.restauranteapi.infra.adapter.mapper.tipousuario.TipoUsuarioMapper;
 import br.com.fiap.restauranteapi.infra.controller.dto.tipousuario.TipoUsuarioRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

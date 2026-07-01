@@ -3,7 +3,7 @@ package br.com.fiap.restauranteapi.infra.adapter.gateway.restaurante;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 import br.com.fiap.restauranteapi.core.gateway.restaurante.RestauranteGateway;
 import br.com.fiap.restauranteapi.infra.adapter.database.repository.restaurante.RestauranteRepository;
-import br.com.fiap.restauranteapi.infra.adapter.mapper.RestauranteMapper;
+import br.com.fiap.restauranteapi.infra.adapter.mapper.restaurante.RestauranteMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;

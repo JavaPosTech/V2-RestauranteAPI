@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.infra.adapter.mapper;
+package br.com.fiap.restauranteapi.infra.adapter.mapper.restaurante;
 
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
@@ -27,8 +27,7 @@ public class RestauranteMapper {
                 entity.getTipoCozinha(),
                 entity.getHoraAbertura().toString(),
                 entity.getHoraFechamento().toString(),
-                entity.getDataCriacao() != null ? entity.getDataCriacao().toString() : null
-        );
+                entity.getDataCriacao() != null ? entity.getDataCriacao().toString() : null);
     }
 
     public static RestauranteEntity toEntity(Restaurante domain) {
