@@ -29,7 +29,7 @@ class RestauranteTest extends AbstractTest {
     }
 
     @Test
-    void pertenceAoUsuarioComUsuarioDonoTest() {
+    void pertenceAoUsuarioTest() {
         Restaurante restaurante = new Restaurante(
                 1,
                 new Usuario(1, "João", "Silva", new TipoUsuario(1, "CLIENTE"), LocalDateTime.now()),
@@ -43,7 +43,7 @@ class RestauranteTest extends AbstractTest {
     }
 
     @Test
-    void pertenceAoUsuarioComUsuarioNaoDonoTest() {
+    void naoPertenceAoUsuarioTest() {
         Restaurante restaurante = new Restaurante(
                 1,
                 new Usuario(1, "João", "Silva", new TipoUsuario(1, "CLIENTE"), LocalDateTime.now()),
