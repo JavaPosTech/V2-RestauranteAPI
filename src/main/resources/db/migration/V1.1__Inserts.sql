@@ -5,14 +5,14 @@ INSERT INTO public.tipo_usuario (descricao) VALUES
 INSERT INTO public.usuario (nome, sobrenome, id_tipousuario) VALUES
 ('GUSTAVO', 'CORREA', 2),
 ('ROBERTO', 'LOCATELLI', 2),
-('EDUARDO', 'GERMANO', 1),
+('EDUARDO', 'GERMANO', 2),
 ('CAROL', 'OLIVEIRA', 1),
 ('DEYVID', 'SANTOS', 1);
 
 INSERT INTO public.restaurante (id_usuario, nome, endereco, tipocozinha, hora_abertura, hora_fechamento) VALUES
 (1, 'SABOR DA CASA', 'RUA CENTRAL, 120', 'ITALIANA', '11:00', '22:00'),
 (2, 'BELLA MASSA', 'AV. PAULISTA, 450', 'BRASILEIRA', '18:00', '23:30'),
-(2, 'SUSHI PRIME', 'RUA JAPÃO, 88', 'JAPONESA', '12:00', '22:30');
+(3, 'SUSHI PRIME', 'RUA JAPÃO, 88', 'JAPONESA', '12:00', '22:30');
 
 INSERT INTO public.cardapio (id_restaurante, nome, descricao, preco, consumo_local, foto) VALUES
 (1, 'FEIJOADA COMPLETA', 'FEIJOADA COM ARROZ E COUVE', 39.90, TRUE, 'feijoada.jpg'),

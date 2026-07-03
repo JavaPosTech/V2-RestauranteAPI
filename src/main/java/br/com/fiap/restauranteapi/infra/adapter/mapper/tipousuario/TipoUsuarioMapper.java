@@ -1,8 +1,8 @@
-package br.com.fiap.restauranteapi.infra.adapter.mapper;
+package br.com.fiap.restauranteapi.infra.adapter.mapper.tipousuario;
 
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.infra.adapter.database.entity.tipousuario.TipoUsuarioEntity;
-import br.com.fiap.restauranteapi.infra.controller.dto.TipoUsuarioRequest;
+import br.com.fiap.restauranteapi.infra.controller.dto.tipousuario.TipoUsuarioRequest;
 
 public class TipoUsuarioMapper {
 
