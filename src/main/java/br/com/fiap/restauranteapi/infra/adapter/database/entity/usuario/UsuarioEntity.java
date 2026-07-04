@@ -1,5 +1,6 @@
 package br.com.fiap.restauranteapi.infra.adapter.database.entity.usuario;
 
+import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -32,5 +33,9 @@ public class UsuarioEntity {
 
     @Column(name = "data_criacao", insertable = false, updatable = false)
     private LocalDateTime dataCriacao;
+
+    @NotNull
+    @Column(name = "id_situacaocadastro", nullable = false)
+    private Integer situacaoCadastroId = ESituacaoCadastro.ATIVO.getCodigo();
 
 }
