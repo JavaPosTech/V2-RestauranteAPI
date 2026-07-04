@@ -34,6 +34,12 @@ public class UsuarioJpaGateway implements UsuarioGateway {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public boolean existsById(Integer id) {
+        return usuarioRepository.existsById(id);
+    }
+
+    @Override
     @Transactional
     public void save(Usuario usuario) {
         usuarioRepository.save(UsuarioMapper.toEntity(usuario));

@@ -53,4 +53,11 @@ public abstract class AbstractControllerTest {
         mockMvc.perform(delete(url))
                 .andExpect(status().isNoContent());
     }
+
+    protected void testDelete(String url, String requestBody) throws Exception {
+        mockMvc.perform(delete(url)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestBody))
+                .andExpect(status().isNoContent());
+    }
 }

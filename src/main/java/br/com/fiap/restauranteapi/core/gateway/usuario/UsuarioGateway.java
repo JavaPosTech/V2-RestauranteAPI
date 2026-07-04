@@ -11,6 +11,8 @@ public interface UsuarioGateway {
 
     Optional<Usuario> findById(Integer id);
 
+    boolean existsById(Integer id);
+
     void save(Usuario usuario);
 
     void deleteLogicoById(Integer id);

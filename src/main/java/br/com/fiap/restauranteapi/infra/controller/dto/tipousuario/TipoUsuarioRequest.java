@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.infra.controller.dto;
+package br.com.fiap.restauranteapi.infra.controller.dto.tipousuario;
 
 import jakarta.validation.constraints.NotBlank;
 
