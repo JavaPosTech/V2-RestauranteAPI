@@ -17,7 +17,7 @@ public abstract class RestauranteAbstractUseCase {
     protected final RestauranteGateway restauranteGateway;
 
     protected void validarUsuarioExistencia(Integer usuarioId) {
-        if (usuarioGateway.existsById(usuarioId)) {
+        if (!usuarioGateway.existsById(usuarioId)) {
             log.error("Usuário não encontrado! ID: {}", usuarioId);
             throw new RegistroNaoEncontradoException("Usuário não encontrado!");
         }
@@ -34,6 +34,21 @@ public abstract class RestauranteAbstractUseCase {
         if (restauranteExistente.pertenceAoUsuario(usuarioId)) {
             log.error("Usuário {} tentou alterar o Restaurante sem ser o Dono!", usuarioId);
             throw new RegraDeNegocioException("Somente o Dono do Restaurante pode alterar ou remover o Restaurante!");
+        }
+    }
+
+    protected void validarUsuarioDonoRestaurante(Integer usuarioId) {
+
+        var usuario = usuarioGateway.findById(usuarioId)
+                .orElseThrow(() -> {
+                    log.error("Usuário não encontrado! ID: {}", usuarioId);
+                    return new RegistroNaoEncontradoException("Usuário não encontrado!");
+                });
+
+        if (usuario.getTipoUsuarioId() != 2) {
+            log.error("Usuário {} não é Dono de Restaurante!", usuarioId);
+            throw new RegraDeNegocioException(
+                    "Somente usuários do tipo Dono de Restaurante podem cadastrar um restaurante!");
         }
     }
 }

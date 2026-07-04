@@ -4,6 +4,7 @@ services:
     container_name: postgres
     environment:
       POSTGRES_PASSWORD: fiap@2026
+      POSTGRES_USER: postgres
     ports:
       - "8745:5432"
     volumes:
