@@ -3,8 +3,8 @@ services:
     image: postgres:18
     container_name: postgres
     environment:
-      POSTGRES_PASSWORD: fiap@2026
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: fiap@2026
     ports:
       - "8745:5432"
     volumes:

@@ -1,6 +1,5 @@
 package br.com.fiap.restauranteapi.infra.adapter.mapper.usuario;
 
-import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import br.com.fiap.restauranteapi.infra.adapter.database.entity.usuario.UsuarioEntity;

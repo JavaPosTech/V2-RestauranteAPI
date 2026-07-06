@@ -1,4 +1,5 @@
 package br.com.fiap.restauranteapi.core.domain.usuario;
+
 import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import lombok.Getter;
@@ -66,8 +67,7 @@ public class Usuario {
                 sobrenome,
                 tipoUsuarioId,
                 null,
-                ESituacaoCadastro.ATIVO
-        );
+                ESituacaoCadastro.ATIVO);
     }
 
     public static Usuario atualizar(String nome, String sobrenome, Integer tipoUsuarioId) {
@@ -92,11 +92,10 @@ public class Usuario {
         }
     }
 
+    // Validar no UseCase
     private void validarTipoUsuarioPermitido(Integer tipoUsuarioId) {
         if (!tipoUsuarioId.equals(1) && !tipoUsuarioId.equals(2)) {
-            throw new RegraDeNegocioException(
-                    "Tipo de Usuário inválido! Valores permitidos: 1 - CLIENTE, 2 - DONO DE RESTAURANTE."
-            );
+            throw new RegraDeNegocioException("Tipo de Usuário inválido!");
         }
     }
 

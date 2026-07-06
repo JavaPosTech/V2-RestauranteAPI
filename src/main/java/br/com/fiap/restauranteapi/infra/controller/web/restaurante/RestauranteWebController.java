@@ -1,7 +1,6 @@
 package br.com.fiap.restauranteapi.infra.controller.web.restaurante;
 
 import br.com.fiap.restauranteapi.core.controller.RestauranteController;
-import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.core.dto.restaurante.RestauranteDTO;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.restaurante.RestauranteMapper;
@@ -20,18 +19,14 @@ public class RestauranteWebController {
 
     private final RestauranteController restauranteController;
 
-    @PostMapping
-    public ResponseEntity<MensagemSucessoResponse> salvar(
-            @RequestBody @Valid RestauranteRequest request){
-
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body(restauranteController.salvar(RestauranteMapper.toDomain(request)));
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<RestauranteDTO> buscar(@PathVariable Integer id) {
         return ResponseEntity.ok(restauranteController.buscar(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<MensagemSucessoResponse> salvar(@RequestBody @Valid RestauranteRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(restauranteController.salvar(RestauranteMapper.toDomain(request)));
     }
 
     @PatchMapping("/{id}")

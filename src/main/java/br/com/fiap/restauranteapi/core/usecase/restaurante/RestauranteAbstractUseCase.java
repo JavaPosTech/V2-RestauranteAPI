@@ -1,12 +1,15 @@
 package br.com.fiap.restauranteapi.core.usecase.restaurante;
 
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
+import br.com.fiap.restauranteapi.core.enums.ETipoUsuario;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.gateway.restaurante.RestauranteGateway;
 import br.com.fiap.restauranteapi.core.gateway.usuario.UsuarioGateway;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.Objects;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -38,17 +41,14 @@ public abstract class RestauranteAbstractUseCase {
     }
 
     protected void validarUsuarioDonoRestaurante(Integer usuarioId) {
+        var usuario = usuarioGateway.findById(usuarioId).orElseThrow(() -> {
+            log.error("Usuário Dono de Restaurante não encontrado! ID: {}", usuarioId);
+            return new RegistroNaoEncontradoException("Usuário Dono de Restaurante não encontrado");
+        });
 
-        var usuario = usuarioGateway.findById(usuarioId)
-                .orElseThrow(() -> {
-                    log.error("Usuário não encontrado! ID: {}", usuarioId);
-                    return new RegistroNaoEncontradoException("Usuário não encontrado!");
-                });
-
-        if (usuario.getTipoUsuarioId() != 2) {
-            log.error("Usuário {} não é Dono de Restaurante!", usuarioId);
-            throw new RegraDeNegocioException(
-                    "Somente usuários do tipo Dono de Restaurante podem cadastrar um restaurante!");
+        if (!Objects.equals(usuario.getTipoUsuarioId(), ETipoUsuario.DONO_RESTAURANTE.getCodigo())) {
+            log.error("O Usuário não é Dono de Restaurante! ID: {}", usuarioId);
+            throw new RegraDeNegocioException("Somente usuários do tipo Dono de Restaurante podem cadastrar um restaurante!");
         }
     }
 }

@@ -14,15 +14,13 @@ import org.springframework.context.annotation.Configuration;
 public class RestauranteBean {
 
     @Bean
-    public RestauranteCriarUseCase criarRestauranteUseCase(UsuarioGateway usuarioGateway, RestauranteGateway restauranteGateway){
-
-        return new RestauranteCriarUseCase(usuarioGateway, restauranteGateway);
+    public RestauranteListarUseCase restauranteListarUseCase(RestauranteGateway gateway) {
+        return new RestauranteListarUseCase(gateway);
     }
 
     @Bean
-    RestauranteListarUseCase listarRestauranteUseCase(RestauranteGateway gateway){
-
-        return new RestauranteListarUseCase(gateway);
+    public RestauranteCriarUseCase restauranteCriarUseCase(UsuarioGateway usuarioGateway, RestauranteGateway restauranteGateway) {
+        return new RestauranteCriarUseCase(usuarioGateway, restauranteGateway);
     }
 
     @Bean
@@ -49,7 +47,7 @@ public class RestauranteBean {
         return new RestauranteController(
                 restauranteCriarUseCase,
                 restauranteListarUseCase,
-                restauranteAtualizarUseCase,
-                restauranteDeletarUseCase);
+                restauranteDeletarUseCase,
+                restauranteAtualizarUseCase);
     }
 }

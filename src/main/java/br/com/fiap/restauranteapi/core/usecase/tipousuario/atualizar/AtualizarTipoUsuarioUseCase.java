@@ -1,10 +1,10 @@
 package br.com.fiap.restauranteapi.core.usecase.tipousuario.atualizar;
 
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
+import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.gateway.tipousuario.TipoUsuarioGateway;
-import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 

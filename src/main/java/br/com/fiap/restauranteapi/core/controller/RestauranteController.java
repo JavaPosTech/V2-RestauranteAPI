@@ -13,16 +13,19 @@ import lombok.RequiredArgsConstructor;
 public class RestauranteController {
 
     private final RestauranteCriarUseCase restauranteCriarUseCase;
+
     private final RestauranteListarUseCase restauranteListarUseCase;
-    private final RestauranteAtualizarUseCase restauranteAtualizarUseCase;
+
     private final RestauranteDeletarUseCase restauranteDeletarUseCase;
 
-    public MensagemSucessoResponse salvar(Restaurante restaurante){
-        return restauranteCriarUseCase.executar(restaurante);
-    }
+    private final RestauranteAtualizarUseCase restauranteAtualizarUseCase;
 
     public RestauranteDTO buscar(Integer id) {
         return restauranteListarUseCase.executar(id);
+    }
+
+    public MensagemSucessoResponse salvar(Restaurante restaurante){
+        return restauranteCriarUseCase.executar(restaurante);
     }
 
     public MensagemSucessoResponse atualizar(Integer id, Restaurante restaurante) {

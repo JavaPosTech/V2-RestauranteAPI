@@ -5,7 +5,6 @@ import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.core.gateway.restaurante.RestauranteGateway;
 import br.com.fiap.restauranteapi.core.gateway.usuario.UsuarioGateway;
 import br.com.fiap.restauranteapi.core.usecase.restaurante.RestauranteAbstractUseCase;
-import lombok.RequiredArgsConstructor;
 
 public class RestauranteCriarUseCase extends RestauranteAbstractUseCase {
 
@@ -14,14 +13,10 @@ public class RestauranteCriarUseCase extends RestauranteAbstractUseCase {
     }
 
     public MensagemSucessoResponse executar(Restaurante restaurante) {
-
-        Integer usuarioId = restaurante.getUsuario().getId();
-
-        validarUsuarioDonoRestaurante(usuarioId);
+        validarUsuarioDonoRestaurante(restaurante.getUsuario().getId());
 
         restauranteGateway.save(restaurante);
 
-        return new MensagemSucessoResponse(201, "Restaurante cadastrado com sucesso.");
+        return new MensagemSucessoResponse(201, "Restaurante cadastrado com sucesso!");
     }
-
 }

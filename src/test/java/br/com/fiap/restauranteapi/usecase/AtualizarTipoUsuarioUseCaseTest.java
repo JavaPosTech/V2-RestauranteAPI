@@ -2,8 +2,8 @@ package br.com.fiap.restauranteapi.usecase;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
-import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
+import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.usecase.tipousuario.atualizar.AtualizarTipoUsuarioUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
