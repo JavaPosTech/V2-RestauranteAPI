@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.controller;
+package br.com.fiap.restauranteapi.controller.restaurante;
 
 import br.com.fiap.restauranteapi.config.AbstractControllerTest;
 import org.junit.jupiter.api.Test;
@@ -9,6 +9,17 @@ import java.nio.file.Paths;
 
 @SpringBootTest
 class RestauranteWebControllerTest extends AbstractControllerTest {
+
+    @Test
+    void listarTest() throws Exception {
+        testGet("/v1/restaurante/1");
+    }
+
+    @Test
+    void salvarTest() throws Exception {
+        String salvarRestaurante = new String(Files.readAllBytes(Paths.get("src/test/resources/restaurante/salvarRestaurante.json")));
+        testPost("/v1/restaurante", salvarRestaurante);
+    }
 
     @Test
     void atualizarTest() throws Exception {
