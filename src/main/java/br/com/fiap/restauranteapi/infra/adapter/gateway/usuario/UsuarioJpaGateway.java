@@ -4,7 +4,7 @@ import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import br.com.fiap.restauranteapi.core.gateway.usuario.UsuarioGateway;
 import br.com.fiap.restauranteapi.infra.adapter.database.repository.usuario.UsuarioRepository;
-import br.com.fiap.restauranteapi.infra.adapter.mapper.UsuarioMapper;
+import br.com.fiap.restauranteapi.infra.adapter.mapper.usuario.UsuarioMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,8 +48,7 @@ public class UsuarioJpaGateway implements UsuarioGateway {
     @Override
     @Transactional
     public void deleteLogicoById(Integer id) {
-        var usuarioEntity = usuarioRepository.findByIdAndSituacaoCadastroId(id, ESituacaoCadastro.ATIVO.getCodigo())
-                .orElseThrow();
+        var usuarioEntity = usuarioRepository.findByIdAndSituacaoCadastroId(id, ESituacaoCadastro.ATIVO.getCodigo()).orElseThrow();
 
         usuarioEntity.setSituacaoCadastroId(ESituacaoCadastro.EXCLUIDO.getCodigo());
 

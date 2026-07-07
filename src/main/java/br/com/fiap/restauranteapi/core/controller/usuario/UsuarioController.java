@@ -1,7 +1,7 @@
-package br.com.fiap.restauranteapi.core.controller;
+package br.com.fiap.restauranteapi.core.controller.usuario;
 
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
-import br.com.fiap.restauranteapi.core.dto.UsuarioDTO.UsuarioDTO;
+import br.com.fiap.restauranteapi.core.dto.usuario.UsuarioDTO;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.core.usecase.usuario.atualizar.AtualizarUsuarioUseCase;
 import br.com.fiap.restauranteapi.core.usecase.usuario.criar.CriarUsuarioUseCase;

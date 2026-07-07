@@ -1,6 +1,6 @@
 package br.com.fiap.restauranteapi.infra.controller.web.restaurante;
 
-import br.com.fiap.restauranteapi.core.controller.RestauranteController;
+import br.com.fiap.restauranteapi.core.controller.restaurante.RestauranteController;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.restaurante.RestauranteMapper;
 import br.com.fiap.restauranteapi.infra.controller.dto.restaurante.RestauranteDeleteRequest;

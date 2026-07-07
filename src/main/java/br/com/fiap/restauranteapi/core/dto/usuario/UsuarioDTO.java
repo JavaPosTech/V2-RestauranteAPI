@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.core.dto.UsuarioDTO;
+package br.com.fiap.restauranteapi.core.dto.usuario;
 
 public record UsuarioDTO(
 

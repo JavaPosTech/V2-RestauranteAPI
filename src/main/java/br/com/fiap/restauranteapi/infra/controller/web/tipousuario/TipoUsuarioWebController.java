@@ -1,6 +1,6 @@
 package br.com.fiap.restauranteapi.infra.controller.web.tipousuario;
 
-import br.com.fiap.restauranteapi.core.controller.TipoUsuarioController;
+import br.com.fiap.restauranteapi.core.controller.tipousuario.TipoUsuarioController;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.core.dto.tipousuario.TipoUsuarioDTO;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.tipousuario.TipoUsuarioMapper;

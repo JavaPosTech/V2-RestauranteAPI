@@ -20,11 +20,10 @@ public class AtualizarUsuarioUseCase {
     public MensagemSucessoResponse executar(Integer id, Usuario usuario) {
         validarId(id);
 
-        var usuarioAtual = usuarioGateway.findById(id)
-                .orElseThrow(() -> {
-                    log.error("O Usuário solicitado não foi encontrado! ID: {}", id);
-                    return new RegistroNaoEncontradoException("O Usuário solicitado não foi encontrado!");
-                });
+        var usuarioAtual = usuarioGateway.findById(id).orElseThrow(() -> {
+            log.error("O Usuário solicitado não foi encontrado! ID: {}", id);
+            return new RegistroNaoEncontradoException("O Usuário solicitado não foi encontrado!");
+        });
 
         if (usuario.getTipoUsuarioId() != null) {
             validarTipoUsuarioExistente(usuario.getTipoUsuarioId());
@@ -40,7 +39,6 @@ public class AtualizarUsuarioUseCase {
         );
 
         usuarioGateway.save(usuarioAtualizado);
-
         return new MensagemSucessoResponse(200, "Usuário atualizado com sucesso!");
     }
 

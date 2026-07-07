@@ -1,6 +1,6 @@
 package br.com.fiap.restauranteapi.infra.config.bean.usuario;
 
-import br.com.fiap.restauranteapi.core.controller.UsuarioController;
+import br.com.fiap.restauranteapi.core.controller.usuario.UsuarioController;
 import br.com.fiap.restauranteapi.core.gateway.tipousuario.TipoUsuarioGateway;
 import br.com.fiap.restauranteapi.core.gateway.usuario.UsuarioGateway;
 import br.com.fiap.restauranteapi.core.usecase.usuario.atualizar.AtualizarUsuarioUseCase;

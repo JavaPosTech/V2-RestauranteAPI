@@ -1,7 +1,7 @@
 package br.com.fiap.restauranteapi.core.usecase.usuario.listar;
 
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
-import br.com.fiap.restauranteapi.core.dto.UsuarioDTO.UsuarioDTO;
+import br.com.fiap.restauranteapi.core.dto.usuario.UsuarioDTO;
 import br.com.fiap.restauranteapi.core.gateway.usuario.UsuarioGateway;
 import lombok.RequiredArgsConstructor;
 
