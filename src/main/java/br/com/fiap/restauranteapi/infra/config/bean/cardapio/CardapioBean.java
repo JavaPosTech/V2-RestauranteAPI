@@ -1,6 +1,6 @@
 package br.com.fiap.restauranteapi.infra.config.bean.cardapio;
 
-import br.com.fiap.restauranteapi.core.controller.CardapioController;
+import br.com.fiap.restauranteapi.core.controller.cardapio.CardapioController;
 import br.com.fiap.restauranteapi.core.gateway.cardapio.CardapioGateway;
 import br.com.fiap.restauranteapi.core.gateway.restaurante.RestauranteGateway;
 import br.com.fiap.restauranteapi.core.usecase.cardapio.atualizar.AtualizarCardapioUseCase;

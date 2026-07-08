@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.core.controller;
+package br.com.fiap.restauranteapi.core.controller.cardapio;
 
 import br.com.fiap.restauranteapi.core.domain.cardapio.Cardapio;
 import br.com.fiap.restauranteapi.core.dto.cardapio.CardapioDTO;

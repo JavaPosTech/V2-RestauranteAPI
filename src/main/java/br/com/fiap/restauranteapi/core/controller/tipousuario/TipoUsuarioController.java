@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.core.controller;
+package br.com.fiap.restauranteapi.core.controller.tipousuario;
 
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.dto.tipousuario.TipoUsuarioDTO;

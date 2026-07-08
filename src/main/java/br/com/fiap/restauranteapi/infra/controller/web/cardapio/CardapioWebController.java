@@ -1,6 +1,6 @@
 package br.com.fiap.restauranteapi.infra.controller.web.cardapio;
 
-import br.com.fiap.restauranteapi.core.controller.CardapioController;
+import br.com.fiap.restauranteapi.core.controller.cardapio.CardapioController;
 import br.com.fiap.restauranteapi.core.dto.cardapio.CardapioDTO;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.cardapio.CardapioMapper;
