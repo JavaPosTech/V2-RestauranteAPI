@@ -1,50 +1,418 @@
 package br.com.fiap.restauranteapi.domain.cardapio;
 
-import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.cardapio.Cardapio;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@SpringBootTest
-class CardapioTest extends AbstractTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class CardapioTest {
 
     @Test
-    void domainTest() {
-        TipoUsuario tipoUsuario = new TipoUsuario(1, "CLIENTE");
-        Usuario usuario = new Usuario(1, "João", "Silva", tipoUsuario, LocalDateTime.now());
-
-        Restaurante restaurante = new Restaurante(
-                1,
-                usuario,
-                "Restaurante Teste",
-                "Rua Teste",
-                "Brasileira",
-                "08:00",
-                "22:00",
-                "24/06/2026"
-        );
+    void deveCriarCardapioComDadosValidos() {
+        Restaurante restaurante = criarRestauranteValido();
 
         Cardapio cardapio = new Cardapio(
                 1,
                 restaurante,
-                "Hambúrguer",
-                "Hambúrguer Artesanal",
-                BigDecimal.TEN,
+                "Pizza Calabresa",
+                "Pizza com calabresa, queijo e cebola",
+                BigDecimal.valueOf(49.90),
                 true,
-                "foto.png"
+                "foto-pizza.jpg"
         );
 
-        Assertions.assertEquals(1, cardapio.getId());
-        Assertions.assertEquals("Hambúrguer Artesanal", cardapio.getDescricao());
-        Assertions.assertEquals("Restaurante Teste", cardapio.getRestaurante().getNome());
-        Assertions.assertEquals("João", cardapio.getRestaurante().getUsuario().getNome());
-        Assertions.assertEquals("CLIENTE", cardapio.getRestaurante().getUsuario().getTipoUsuario().getDescricao());
+        assertNotNull(cardapio);
+        assertEquals(1, cardapio.getId());
+        assertEquals(restaurante, cardapio.getRestaurante());
+        assertEquals("Pizza Calabresa", cardapio.getNome());
+        assertEquals("Pizza com calabresa, queijo e cebola", cardapio.getDescricao());
+        assertEquals(BigDecimal.valueOf(49.90), cardapio.getPreco());
+        assertTrue(cardapio.isConsumoLocal());
+        assertEquals("foto-pizza.jpg", cardapio.getFoto());
+    }
+
+    @Test
+    void deveRemoverEspacosDoNomeAoCriarCardapio() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        Cardapio cardapio = new Cardapio(
+                1,
+                restaurante,
+                "   Pizza Calabresa   ",
+                "Pizza com calabresa",
+                BigDecimal.valueOf(49.90),
+                true,
+                "foto.jpg"
+        );
+
+        assertEquals("Pizza Calabresa", cardapio.getNome());
+    }
+
+    @Test
+    void devePermitirCriarCardapioComIdNulo() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        Cardapio cardapio = new Cardapio(
+                null,
+                restaurante,
+                "Pizza Calabresa",
+                "Pizza com calabresa",
+                BigDecimal.valueOf(49.90),
+                true,
+                "foto.jpg"
+        );
+
+        assertNotNull(cardapio);
+        assertNull(cardapio.getId());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoIdForMenorOuIgualAZero() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Cardapio(
+                        0,
+                        restaurante,
+                        "Pizza Calabresa",
+                        "Pizza com calabresa",
+                        BigDecimal.valueOf(49.90),
+                        true,
+                        "foto.jpg"
+                )
+        );
+
+        assertEquals("O id do cardápio deve ser maior que zero.", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoRestauranteForNulo() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Cardapio(
+                        1,
+                        null,
+                        "Pizza Calabresa",
+                        "Pizza com calabresa",
+                        BigDecimal.valueOf(49.90),
+                        true,
+                        "foto.jpg"
+                )
+        );
+
+        assertEquals("O restaurante é obrigatório.", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoNomeForNulo() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Cardapio(
+                        1,
+                        restaurante,
+                        null,
+                        "Pizza com calabresa",
+                        BigDecimal.valueOf(49.90),
+                        true,
+                        "foto.jpg"
+                )
+        );
+
+        assertEquals("O nome do item do cardápio é obrigatório.", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoNomeForVazio() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Cardapio(
+                        1,
+                        restaurante,
+                        "",
+                        "Pizza com calabresa",
+                        BigDecimal.valueOf(49.90),
+                        true,
+                        "foto.jpg"
+                )
+        );
+
+        assertEquals("O nome do item do cardápio é obrigatório.", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoNomeForEmBranco() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Cardapio(
+                        1,
+                        restaurante,
+                        "     ",
+                        "Pizza com calabresa",
+                        BigDecimal.valueOf(49.90),
+                        true,
+                        "foto.jpg"
+                )
+        );
+
+        assertEquals("O nome do item do cardápio é obrigatório.", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoNomeForMaiorQueCemCaracteres() {
+        Restaurante restaurante = criarRestauranteValido();
+        String nomeGrande = "A".repeat(101);
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Cardapio(
+                        1,
+                        restaurante,
+                        nomeGrande,
+                        "Descrição",
+                        BigDecimal.valueOf(49.90),
+                        true,
+                        "foto.jpg"
+                )
+        );
+
+        assertEquals("O nome do item do cardápio deve ter no máximo 100 caracteres.", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoPrecoForNulo() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Cardapio(
+                        1,
+                        restaurante,
+                        "Pizza Calabresa",
+                        "Pizza com calabresa",
+                        null,
+                        true,
+                        "foto.jpg"
+                )
+        );
+
+        assertEquals("O preço do item do cardápio é obrigatório.", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoPrecoForZero() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Cardapio(
+                        1,
+                        restaurante,
+                        "Pizza Calabresa",
+                        "Pizza com calabresa",
+                        BigDecimal.ZERO,
+                        true,
+                        "foto.jpg"
+                )
+        );
+
+        assertEquals("O preço do item do cardápio deve ser maior que zero.", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarExcecaoQuandoPrecoForNegativo() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> new Cardapio(
+                        1,
+                        restaurante,
+                        "Pizza Calabresa",
+                        "Pizza com calabresa",
+                        BigDecimal.valueOf(-10),
+                        true,
+                        "foto.jpg"
+                )
+        );
+
+        assertEquals("O preço do item do cardápio deve ser maior que zero.", exception.getMessage());
+    }
+
+    @Test
+    void deveAtualizarDadosDoCardapio() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        Cardapio cardapio = new Cardapio(
+                1,
+                restaurante,
+                "Pizza Calabresa",
+                "Pizza com calabresa",
+                BigDecimal.valueOf(49.90),
+                true,
+                "foto-antiga.jpg"
+        );
+
+        cardapio.atualizarDados(
+                "Pizza Frango",
+                "Pizza com frango e catupiry",
+                BigDecimal.valueOf(59.90),
+                false,
+                "foto-nova.jpg"
+        );
+
+        assertEquals("Pizza Frango", cardapio.getNome());
+        assertEquals("Pizza com frango e catupiry", cardapio.getDescricao());
+        assertEquals(BigDecimal.valueOf(59.90), cardapio.getPreco());
+        assertFalse(cardapio.isConsumoLocal());
+        assertEquals("foto-nova.jpg", cardapio.getFoto());
+    }
+
+    @Test
+    void deveLancarExcecaoAoAtualizarComNomeInvalido() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        Cardapio cardapio = new Cardapio(
+                1,
+                restaurante,
+                "Pizza Calabresa",
+                "Pizza com calabresa",
+                BigDecimal.valueOf(49.90),
+                true,
+                "foto.jpg"
+        );
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> cardapio.atualizarDados(
+                        "",
+                        "Nova descrição",
+                        BigDecimal.valueOf(59.90),
+                        true,
+                        "nova-foto.jpg"
+                )
+        );
+
+        assertEquals("O nome do item do cardápio é obrigatório.", exception.getMessage());
+    }
+
+    @Test
+    void deveLancarExcecaoAoAtualizarComPrecoInvalido() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        Cardapio cardapio = new Cardapio(
+                1,
+                restaurante,
+                "Pizza Calabresa",
+                "Pizza com calabresa",
+                BigDecimal.valueOf(49.90),
+                true,
+                "foto.jpg"
+        );
+
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> cardapio.atualizarDados(
+                        "Pizza Frango",
+                        "Nova descrição",
+                        BigDecimal.ZERO,
+                        true,
+                        "nova-foto.jpg"
+                )
+        );
+
+        assertEquals("O preço do item do cardápio deve ser maior que zero.", exception.getMessage());
+    }
+
+    @Test
+    void deveVerificarSeCardapioPertenceAoRestaurante() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        Cardapio cardapio = new Cardapio(
+                1,
+                restaurante,
+                "Pizza Calabresa",
+                "Pizza com calabresa",
+                BigDecimal.valueOf(49.90),
+                true,
+                "foto.jpg"
+        );
+
+        assertTrue(cardapio.pertenceAoRestaurante(1));
+    }
+
+    @Test
+    void deveRetornarFalsoQuandoCardapioNaoPertenceAoRestaurante() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        Cardapio cardapio = new Cardapio(
+                1,
+                restaurante,
+                "Pizza Calabresa",
+                "Pizza com calabresa",
+                BigDecimal.valueOf(49.90),
+                true,
+                "foto.jpg"
+        );
+
+        assertFalse(cardapio.pertenceAoRestaurante(2));
+    }
+
+    @Test
+    void deveVerificarSePossuiPrecoValido() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        Cardapio cardapio = new Cardapio(
+                1,
+                restaurante,
+                "Pizza Calabresa",
+                "Pizza com calabresa",
+                BigDecimal.valueOf(49.90),
+                true,
+                "foto.jpg"
+        );
+
+        assertTrue(cardapio.possuiPrecoValido());
+    }
+
+    @Test
+    void deveVerificarSePermiteConsumoLocal() {
+        Restaurante restaurante = criarRestauranteValido();
+
+        Cardapio cardapio = new Cardapio(
+                1,
+                restaurante,
+                "Pizza Calabresa",
+                "Pizza com calabresa",
+                BigDecimal.valueOf(49.90),
+                true,
+                "foto.jpg"
+        );
+
+        assertTrue(cardapio.permiteConsumoLocal());
+    }
+
+    private Restaurante criarRestauranteValido() {
+        return new Restaurante(
+                1,
+                new Usuario(1, "João", "Silva", new TipoUsuario(1, "CLIENTE"), LocalDateTime.now()),
+                "TESTE",
+                "Rua de Teste, 1234",
+                "BRASILEIRA", "12:00",
+                "22:00",
+                "2024-06-01");
     }
 }
