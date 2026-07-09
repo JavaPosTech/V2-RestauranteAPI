@@ -1,5 +1,7 @@
 package br.com.fiap.restauranteapi.core.dto.restaurante;
 
+import java.time.LocalDateTime;
+
 public record RestauranteDTO(
 
         Integer id,
@@ -14,6 +16,6 @@ public record RestauranteDTO(
 
         String horaFechamento,
 
-        String dataCriacao
+        LocalDateTime dataCriacao
 
 ) {}

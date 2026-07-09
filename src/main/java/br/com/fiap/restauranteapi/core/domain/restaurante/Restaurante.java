@@ -4,6 +4,7 @@ import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
 
@@ -24,7 +25,7 @@ public class Restaurante {
 
     private String horaFechamento;
 
-    private String dataCriacao;
+    private LocalDateTime dataCriacao;
 
     public Restaurante(
             Integer id,
@@ -34,7 +35,7 @@ public class Restaurante {
             String tipoCozinha,
             String horaAbertura,
             String horaFechamento,
-            String dataCriacao
+            LocalDateTime dataCriacao
     ) {
         validarUsuarioObrigatorio(usuario);
         validarNomeObrigatorio(nome);

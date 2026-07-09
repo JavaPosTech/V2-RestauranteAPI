@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @SpringBootTest
 class RestauranteCriarUseCaseTest extends AbstractTest {
@@ -29,7 +29,7 @@ class RestauranteCriarUseCaseTest extends AbstractTest {
                 "BRASILEIRA",
                 "10:00",
                 "22:00",
-                LocalDate.now().toString())));
+                LocalDateTime.now())));
     }
 
     @Test
@@ -42,7 +42,7 @@ class RestauranteCriarUseCaseTest extends AbstractTest {
                 "BRASILEIRA",
                 "10:00",
                 "22:00",
-                LocalDate.now().toString())));
+                LocalDateTime.now())));
     }
 
     @Test
@@ -55,6 +55,6 @@ class RestauranteCriarUseCaseTest extends AbstractTest {
                 "BRASILEIRA",
                 "10:00",
                 "22:00",
-                LocalDate.now().toString())));
+                LocalDateTime.now())));
     }
 }
