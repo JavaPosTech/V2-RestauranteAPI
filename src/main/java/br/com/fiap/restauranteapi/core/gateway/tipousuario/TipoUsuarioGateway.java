@@ -1,6 +1,7 @@
 package br.com.fiap.restauranteapi.core.gateway.tipousuario;
 
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
+
 import java.util.List;
 import java.util.Optional;
 

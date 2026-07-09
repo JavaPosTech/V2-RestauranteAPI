@@ -1,0 +1,2 @@
+ALTER TABLE public.usuario
+    ADD COLUMN IF NOT EXISTS id_situacaocadastro INTEGER NOT NULL DEFAULT 1;

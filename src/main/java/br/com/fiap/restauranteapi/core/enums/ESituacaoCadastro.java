@@ -27,8 +27,6 @@ public enum ESituacaoCadastro {
         return Arrays.stream(values())
                 .filter(situacao -> situacao.getCodigo().equals(codigo))
                 .findFirst()
-                .orElseThrow(() -> new RegraDeNegocioException(
-                        "Situação do Cadastro inválida! Valores permitidos: 1 - ATIVO, 2 - EXCLUIDO."
-                ));
+                .orElseThrow(() -> new RegraDeNegocioException("Situação do Cadastro inválida!"));
     }
 }

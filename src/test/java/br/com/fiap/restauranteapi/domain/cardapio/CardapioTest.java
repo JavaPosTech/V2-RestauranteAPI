@@ -3,8 +3,8 @@ package br.com.fiap.restauranteapi.domain.cardapio;
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.cardapio.Cardapio;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
-import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
+import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,8 +17,7 @@ class CardapioTest extends AbstractTest {
 
     @Test
     void domainTest() {
-        TipoUsuario tipoUsuario = new TipoUsuario(1, "CLIENTE");
-        Usuario usuario = new Usuario(1, "João", "Silva", tipoUsuario, LocalDateTime.now());
+        Usuario usuario = new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO);
 
         Restaurante restaurante = new Restaurante(
                 1,
@@ -45,6 +44,5 @@ class CardapioTest extends AbstractTest {
         Assertions.assertEquals("Hambúrguer Artesanal", cardapio.getDescricao());
         Assertions.assertEquals("Restaurante Teste", cardapio.getRestaurante().getNome());
         Assertions.assertEquals("João", cardapio.getRestaurante().getUsuario().getNome());
-        Assertions.assertEquals("CLIENTE", cardapio.getRestaurante().getUsuario().getTipoUsuario().getDescricao());
     }
 }

@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.usecase;
+package br.com.fiap.restauranteapi.usecase.restaurante;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
@@ -18,8 +18,7 @@ class AtualizarRestauranteUseCaseTest extends AbstractTest {
     private RestauranteAtualizarUseCase restauranteAtualizarUseCase;
 
     private Restaurante restauranteValido(Integer usuarioId) {
-        Usuario usuario = new Usuario(usuarioId, null, null, null, null);
-        return new Restaurante(null, usuario, "SABOR ATUALIZADO", "RUA NOVA, 10", "FRANCESA", "10:00", "23:00", null);
+        return new Restaurante(null, new Usuario(usuarioId), "SABOR ATUALIZADO", "RUA NOVA, 10", "FRANCESA", "10:00", "23:00", null);
     }
 
     @Test

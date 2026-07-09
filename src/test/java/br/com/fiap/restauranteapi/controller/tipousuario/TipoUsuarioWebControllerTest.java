@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.controller;
+package br.com.fiap.restauranteapi.controller.tipousuario;
 
 import br.com.fiap.restauranteapi.config.AbstractControllerTest;
 import org.junit.jupiter.api.Test;
