@@ -22,19 +22,16 @@ class DeletarRestauranteUseCaseTest extends AbstractTest {
 
     @Test
     void executarTestComRestauranteInexistente() {
-        Assertions.assertThrows(RegistroNaoEncontradoException.class,
-                () -> restauranteDeletarUseCase.executar(999, 1));
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> restauranteDeletarUseCase.executar(999, 1));
     }
 
     @Test
     void executarTestComUsuarioInexistente() {
-        Assertions.assertThrows(RegistroNaoEncontradoException.class,
-                () -> restauranteDeletarUseCase.executar(1, 999));
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> restauranteDeletarUseCase.executar(1, 999));
     }
 
     @Test
     void executarTestComUsuarioNaoDono() {
-        Assertions.assertThrows(RegraDeNegocioException.class,
-                () -> restauranteDeletarUseCase.executar(2, 1));
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> restauranteDeletarUseCase.executar(2, 1));
     }
 }

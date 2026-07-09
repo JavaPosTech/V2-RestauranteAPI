@@ -5,7 +5,6 @@ import br.com.fiap.restauranteapi.core.dto.usuario.UsuarioDTO;
 import br.com.fiap.restauranteapi.core.gateway.usuario.UsuarioGateway;
 import lombok.RequiredArgsConstructor;
 
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -26,7 +25,6 @@ public class ListarUsuarioUseCase {
                 usuario.getSobrenome(),
                 usuario.getTipoUsuarioId(),
                 usuario.getSituacaoCadastro().getDescricao(),
-                usuario.getDataCriacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
-        );
+                usuario.getDataCriacao());
     }
 }

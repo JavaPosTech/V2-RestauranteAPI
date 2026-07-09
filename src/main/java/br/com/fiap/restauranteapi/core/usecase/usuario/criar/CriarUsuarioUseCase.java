@@ -22,30 +22,18 @@ public class CriarUsuarioUseCase {
 
         usuarioGateway.save(usuario);
 
-        return new MensagemSucessoResponse(
-                201,
-                "Usuário criado com sucesso!"
-        );
+        return new MensagemSucessoResponse(201, "Usuário criado com sucesso!");
     }
 
     private void validarTipoUsuario(Integer tipoUsuarioId) {
         if (tipoUsuarioId == null) {
             log.error("O Tipo de Usuário é obrigatório!");
-
-            throw new RegraDeNegocioException(
-                    "O Tipo de Usuário é obrigatório!"
-            );
+            throw new RegraDeNegocioException("O Tipo de Usuário é obrigatório!");
         }
 
         if (tipoUsuarioGateway.findById(tipoUsuarioId).isEmpty()) {
-            log.error(
-                    "O Tipo de Usuário informado não foi encontrado! ID: {}",
-                    tipoUsuarioId
-            );
-
-            throw new RegistroNaoEncontradoException(
-                    "O Tipo de Usuário informado não foi encontrado!"
-            );
+            log.error("O Tipo de Usuário informado não foi encontrado! ID: {}", tipoUsuarioId);
+            throw new RegistroNaoEncontradoException("O Tipo de Usuário informado não foi encontrado!");
         }
     }
 }

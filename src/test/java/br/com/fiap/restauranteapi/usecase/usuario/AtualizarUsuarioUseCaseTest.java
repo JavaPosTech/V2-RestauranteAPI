@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.usecase;
+package br.com.fiap.restauranteapi.usecase.usuario;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
@@ -24,9 +24,7 @@ class AtualizarUsuarioUseCaseTest extends AbstractTest {
                 null
         );
 
-        Assertions.assertDoesNotThrow(
-                () -> atualizarUsuarioUseCase.executar(1, usuario)
-        );
+        Assertions.assertDoesNotThrow(() -> atualizarUsuarioUseCase.executar(1, usuario));
     }
 
     @Test
@@ -37,10 +35,7 @@ class AtualizarUsuarioUseCaseTest extends AbstractTest {
                 null
         );
 
-        Assertions.assertThrows(
-                RegistroNaoEncontradoException.class,
-                () -> atualizarUsuarioUseCase.executar(999, usuario)
-        );
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarUsuarioUseCase.executar(999, usuario));
     }
 
     @Test
@@ -51,10 +46,7 @@ class AtualizarUsuarioUseCaseTest extends AbstractTest {
                 999
         );
 
-        Assertions.assertThrows(
-                RegistroNaoEncontradoException.class,
-                () -> atualizarUsuarioUseCase.executar(1, usuario)
-        );
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarUsuarioUseCase.executar(1, usuario));
     }
     @Test
     void executarAtualizandoSomenteSobrenomeTest() {
@@ -64,9 +56,7 @@ class AtualizarUsuarioUseCaseTest extends AbstractTest {
                 null
         );
 
-        Assertions.assertDoesNotThrow(
-                () -> atualizarUsuarioUseCase.executar(1, usuario)
-        );
+        Assertions.assertDoesNotThrow(() -> atualizarUsuarioUseCase.executar(1, usuario));
     }
 
     @Test
@@ -77,9 +67,6 @@ class AtualizarUsuarioUseCaseTest extends AbstractTest {
                 null
         );
 
-        Assertions.assertThrows(
-                RegraDeNegocioException.class,
-                () -> atualizarUsuarioUseCase.executar(null, usuario)
-        );
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> atualizarUsuarioUseCase.executar(null, usuario));
     }
 }

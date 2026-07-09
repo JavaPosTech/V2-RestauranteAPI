@@ -11,19 +11,11 @@ public class UsuarioMapper {
     private UsuarioMapper() {}
 
     public static Usuario toDomain(UsuarioRequest request) {
-        return Usuario.criar(
-                request.nome(),
-                request.sobrenome(),
-                request.tipoUsuarioId()
-        );
+        return Usuario.criar(request.nome(), request.sobrenome(), request.tipoUsuarioId());
     }
 
     public static Usuario toDomain(AtualizarUsuarioRequest request) {
-        return Usuario.atualizar(
-                request.nome(),
-                request.sobrenome(),
-                request.tipoUsuarioId()
-        );
+        return Usuario.atualizar(request.nome(), request.sobrenome(), request.tipoUsuarioId());
     }
 
     public static Usuario toDomain(UsuarioEntity entity) {
@@ -44,8 +36,7 @@ public class UsuarioMapper {
         entity.setNome(domain.getNome());
         entity.setSobrenome(domain.getSobrenome());
         entity.setTipoUsuarioId(domain.getTipoUsuarioId());
-        entity.setSituacaoCadastroId(domain.getId() == null ? ESituacaoCadastro.ATIVO.getCodigo() : domain
-                .getSituacaoCadastro().getCodigo());
+        entity.setSituacaoCadastroId(domain.getId() == null ? ESituacaoCadastro.ATIVO.getCodigo() : domain.getSituacaoCadastro().getCodigo());
 
         return entity;
     }
