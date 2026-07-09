@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.core.controller;
+package br.com.fiap.restauranteapi.core.controller.restaurante;
 
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;

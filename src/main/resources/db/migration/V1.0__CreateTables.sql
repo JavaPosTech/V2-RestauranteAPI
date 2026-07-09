@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS public.usuario (
     sobrenome VARCHAR(100) NOT NULL,
     id_tipousuario INTEGER NOT NULL,
     data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    id_situacaocadastro INTEGER NOT NULL DEFAULT 1,
     FOREIGN KEY (id_tipousuario) REFERENCES public.tipo_usuario(id)
 );
 

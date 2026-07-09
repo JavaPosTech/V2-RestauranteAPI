@@ -13,7 +13,7 @@ public class ListarUsuarioUseCase {
 
     private final UsuarioGateway usuarioGateway;
 
-    public List<br.com.fiap.restauranteapi.core.dto.usuario.UsuarioDTO> executar() {
+    public List<UsuarioDTO> executar() {
         return usuarioGateway.findAll().stream()
                 .map(this::toDTO)
                 .toList();
@@ -25,9 +25,8 @@ public class ListarUsuarioUseCase {
                 usuario.getNome(),
                 usuario.getSobrenome(),
                 usuario.getTipoUsuarioId(),
-                usuario.getSituacaoCadastro().getCodigo(),
                 usuario.getSituacaoCadastro().getDescricao(),
-                usuario.getDataCriacao() == null ? null : usuario.getDataCriacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
+                usuario.getDataCriacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
         );
     }
 }

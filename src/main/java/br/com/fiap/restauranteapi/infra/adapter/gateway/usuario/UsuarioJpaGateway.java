@@ -21,7 +21,8 @@ public class UsuarioJpaGateway implements UsuarioGateway {
     @Override
     @Transactional(readOnly = true)
     public List<Usuario> findAll() {
-        return usuarioRepository.findAllBySituacaoCadastroId(ESituacaoCadastro.ATIVO.getCodigo()).stream()
+        return usuarioRepository.findAll()
+                .stream()
                 .map(UsuarioMapper::toDomain)
                 .toList();
     }
@@ -48,8 +49,7 @@ public class UsuarioJpaGateway implements UsuarioGateway {
     @Override
     @Transactional
     public void deleteLogicoById(Integer id) {
-        var usuarioEntity = usuarioRepository.findByIdAndSituacaoCadastroId(id, ESituacaoCadastro.ATIVO.getCodigo())
-                .orElseThrow();
+        var usuarioEntity = usuarioRepository.findByIdAndSituacaoCadastroId(id, ESituacaoCadastro.ATIVO.getCodigo()).orElseThrow();
 
         usuarioEntity.setSituacaoCadastroId(ESituacaoCadastro.EXCLUIDO.getCodigo());
 

@@ -21,6 +21,10 @@ public class Usuario {
 
     private ESituacaoCadastro situacaoCadastro;
 
+    public Usuario(Integer id) {
+        this.id = id;
+    }
+
     public Usuario(
             Integer id,
             String nome,
@@ -32,7 +36,6 @@ public class Usuario {
         validarNomeObrigatorio(nome);
         validarSobrenomeObrigatorio(sobrenome);
         validarTipoUsuarioObrigatorio(tipoUsuarioId);
-        validarTipoUsuarioPermitido(tipoUsuarioId);
 
         this.id = id;
         this.nome = nome;
@@ -42,18 +45,10 @@ public class Usuario {
         this.situacaoCadastro = situacaoCadastro == null ? ESituacaoCadastro.ATIVO : situacaoCadastro;
     }
 
-    public Usuario(Integer id) {
-        this.id = id;
-    }
-
     private Usuario(String nome, String sobrenome, Integer tipoUsuarioId) {
         validarAoMenosUmCampo(nome, sobrenome, tipoUsuarioId);
         validarNomeSeInformado(nome);
         validarSobrenomeSeInformado(sobrenome);
-
-        if (tipoUsuarioId != null) {
-            validarTipoUsuarioPermitido(tipoUsuarioId);
-        }
 
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -67,7 +62,8 @@ public class Usuario {
                 sobrenome,
                 tipoUsuarioId,
                 null,
-                ESituacaoCadastro.ATIVO);
+                ESituacaoCadastro.ATIVO
+        );
     }
 
     public static Usuario atualizar(String nome, String sobrenome, Integer tipoUsuarioId) {
@@ -89,13 +85,6 @@ public class Usuario {
     private void validarTipoUsuarioObrigatorio(Integer tipoUsuarioId) {
         if (tipoUsuarioId == null) {
             throw new RegraDeNegocioException("O Tipo de Usuário é obrigatório!");
-        }
-    }
-
-    // Validar no UseCase
-    private void validarTipoUsuarioPermitido(Integer tipoUsuarioId) {
-        if (!tipoUsuarioId.equals(1) && !tipoUsuarioId.equals(2)) {
-            throw new RegraDeNegocioException("Tipo de Usuário inválido!");
         }
     }
 

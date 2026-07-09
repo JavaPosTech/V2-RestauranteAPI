@@ -44,7 +44,8 @@ public class UsuarioMapper {
         entity.setNome(domain.getNome());
         entity.setSobrenome(domain.getSobrenome());
         entity.setTipoUsuarioId(domain.getTipoUsuarioId());
-        entity.setSituacaoCadastroId(domain.getSituacaoCadastro().getCodigo());
+        entity.setSituacaoCadastroId(domain.getId() == null ? ESituacaoCadastro.ATIVO.getCodigo() : domain
+                .getSituacaoCadastro().getCodigo());
 
         return entity;
     }

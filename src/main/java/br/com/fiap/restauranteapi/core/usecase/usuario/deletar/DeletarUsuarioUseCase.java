@@ -14,7 +14,6 @@ public class DeletarUsuarioUseCase {
 
     public void executar(Integer id) {
         validarExistencia(id);
-
         usuarioGateway.deleteLogicoById(id);
     }
 
