@@ -1,0 +1,8 @@
+{
+  "usuarioId": 1,
+  "nome": "RESTAURANTE TESTE",
+  "endereco": "RUA DOIS, 20",
+  "tipoCozinha": "JAPONESA",
+  "horaAbertura": "12:00",
+  "horaFechamento": "22:00"
+}

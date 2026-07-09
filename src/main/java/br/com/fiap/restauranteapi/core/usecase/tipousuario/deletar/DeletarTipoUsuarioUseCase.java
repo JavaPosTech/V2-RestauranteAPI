@@ -1,7 +1,7 @@
 package br.com.fiap.restauranteapi.core.usecase.tipousuario.deletar;
 
-import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
+import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.gateway.tipousuario.TipoUsuarioGateway;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
