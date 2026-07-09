@@ -18,11 +18,16 @@ public class UsuarioBean {
             UsuarioGateway usuarioGateway,
             TipoUsuarioGateway tipoUsuarioGateway
     ) {
-        return new CriarUsuarioUseCase(usuarioGateway, tipoUsuarioGateway);
+        return new CriarUsuarioUseCase(
+                usuarioGateway,
+                tipoUsuarioGateway
+        );
     }
 
     @Bean
-    public ListarUsuarioUseCase listarUsuarioUseCase(UsuarioGateway usuarioGateway) {
+    public ListarUsuarioUseCase listarUsuarioUseCase(
+            UsuarioGateway usuarioGateway
+    ) {
         return new ListarUsuarioUseCase(usuarioGateway);
     }
 
@@ -31,11 +36,16 @@ public class UsuarioBean {
             UsuarioGateway usuarioGateway,
             TipoUsuarioGateway tipoUsuarioGateway
     ) {
-        return new AtualizarUsuarioUseCase(usuarioGateway, tipoUsuarioGateway);
+        return new AtualizarUsuarioUseCase(
+                usuarioGateway,
+                tipoUsuarioGateway
+        );
     }
 
     @Bean
-    public DeletarUsuarioUseCase deletarUsuarioUseCase(UsuarioGateway usuarioGateway) {
+    public DeletarUsuarioUseCase deletarUsuarioUseCase(
+            UsuarioGateway usuarioGateway
+    ) {
         return new DeletarUsuarioUseCase(usuarioGateway);
     }
 

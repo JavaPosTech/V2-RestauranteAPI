@@ -27,7 +27,7 @@ public class RestauranteMapper {
                 entity.getTipoCozinha(),
                 entity.getHoraAbertura().toString(),
                 entity.getHoraFechamento().toString(),
-                entity.getDataCriacao() != null ? entity.getDataCriacao().toString() : null);
+                entity.getDataCriacao());
     }
 
     public static RestauranteEntity toEntity(Restaurante domain) {

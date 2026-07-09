@@ -1,8 +1,8 @@
 package br.com.fiap.restauranteapi.infra.controller.web.usuario;
 
 import br.com.fiap.restauranteapi.core.controller.usuario.UsuarioController;
-import br.com.fiap.restauranteapi.core.dto.usuario.UsuarioDTO;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
+import br.com.fiap.restauranteapi.core.dto.usuario.UsuarioDTO;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.usuario.UsuarioMapper;
 import br.com.fiap.restauranteapi.infra.controller.dto.usuario.AtualizarUsuarioRequest;
 import br.com.fiap.restauranteapi.infra.controller.dto.usuario.UsuarioRequest;

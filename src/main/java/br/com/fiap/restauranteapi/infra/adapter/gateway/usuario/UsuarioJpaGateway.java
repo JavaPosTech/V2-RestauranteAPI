@@ -21,7 +21,8 @@ public class UsuarioJpaGateway implements UsuarioGateway {
     @Override
     @Transactional(readOnly = true)
     public List<Usuario> findAll() {
-        return usuarioRepository.findAllBySituacaoCadastroId(ESituacaoCadastro.ATIVO.getCodigo()).stream()
+        return usuarioRepository.findAll()
+                .stream()
                 .map(UsuarioMapper::toDomain)
                 .toList();
     }

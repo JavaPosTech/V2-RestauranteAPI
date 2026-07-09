@@ -10,8 +10,6 @@ public record UsuarioDTO(
 
         Integer tipoUsuarioId,
 
-        Integer situacaoCadastroId,
-
         String situacaoCadastro,
 
         String dataCriacao

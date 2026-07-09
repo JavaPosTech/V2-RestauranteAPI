@@ -27,7 +27,7 @@ class CardapioTest extends AbstractTest {
                 "Brasileira",
                 "08:00",
                 "22:00",
-                "24/06/2026"
+                LocalDateTime.now()
         );
 
         Cardapio cardapio = new Cardapio(
