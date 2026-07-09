@@ -18,7 +18,7 @@ class AtualizarRestauranteUseCaseTest extends AbstractTest {
     private RestauranteAtualizarUseCase restauranteAtualizarUseCase;
 
     private Restaurante restauranteValido(Integer usuarioId) {
-        Usuario usuario = new Usuario(usuarioId, null, null, null, null);
+        Usuario usuario = new Usuario(usuarioId);
         return new Restaurante(null, usuario, "SABOR ATUALIZADO", "RUA NOVA, 10", "FRANCESA", "10:00", "23:00", null);
     }
 

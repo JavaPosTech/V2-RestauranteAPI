@@ -17,7 +17,7 @@ public abstract class RestauranteAbstractUseCase {
     protected final RestauranteGateway restauranteGateway;
 
     protected void validarUsuarioExistencia(Integer usuarioId) {
-        if (usuarioGateway.existsById(usuarioId)) {
+        if (!usuarioGateway.existsById(usuarioId)) {
             log.error("Usuário não encontrado! ID: {}", usuarioId);
             throw new RegistroNaoEncontradoException("Usuário não encontrado!");
         }

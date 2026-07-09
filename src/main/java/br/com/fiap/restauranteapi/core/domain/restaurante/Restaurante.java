@@ -4,6 +4,8 @@ import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @AllArgsConstructor
 public class Restaurante {
@@ -22,7 +24,7 @@ public class Restaurante {
 
     private String horaFechamento;
 
-    private String dataCriacao;
+    private LocalDateTime dataCriacao;
 
     public boolean pertenceAoUsuario(Integer usuarioId) {
         return !this.usuario.getId().equals(usuarioId);

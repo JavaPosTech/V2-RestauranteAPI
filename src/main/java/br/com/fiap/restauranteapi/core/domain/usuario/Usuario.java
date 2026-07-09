@@ -21,6 +21,10 @@ public class Usuario {
 
     private ESituacaoCadastro situacaoCadastro;
 
+    public Usuario(Integer id) {
+        this.id = id;
+    }
+
     public Usuario(
             Integer id,
             String nome,

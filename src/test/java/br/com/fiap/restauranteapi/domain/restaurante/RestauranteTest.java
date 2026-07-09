@@ -4,6 +4,7 @@ import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
+import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,12 +18,12 @@ class RestauranteTest extends AbstractTest {
     void domainTest() {
         Restaurante restaurante = new Restaurante(
                 1,
-                new Usuario(1, "João", "Silva", new TipoUsuario(1, "CLIENTE"), LocalDateTime.now()),
+                new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO),
                 "TESTE",
                 "Rua de Teste, 1234",
                 "BRASILEIRA", "12:00",
                 "22:00",
-                "2024-06-01");
+                LocalDateTime.now());
 
         Assertions.assertEquals(1, restaurante.getId());
         Assertions.assertEquals("BRASILEIRA", restaurante.getTipoCozinha());
@@ -32,12 +33,12 @@ class RestauranteTest extends AbstractTest {
     void pertenceAoUsuarioTest() {
         Restaurante restaurante = new Restaurante(
                 1,
-                new Usuario(1, "João", "Silva", new TipoUsuario(1, "CLIENTE"), LocalDateTime.now()),
+                new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO),
                 "TESTE",
                 "Rua de Teste, 1234",
                 "BRASILEIRA", "12:00",
                 "22:00",
-                "2024-06-01");
+                LocalDateTime.now());
 
         Assertions.assertFalse(restaurante.pertenceAoUsuario(1));
     }
@@ -46,12 +47,12 @@ class RestauranteTest extends AbstractTest {
     void naoPertenceAoUsuarioTest() {
         Restaurante restaurante = new Restaurante(
                 1,
-                new Usuario(1, "João", "Silva", new TipoUsuario(1, "CLIENTE"), LocalDateTime.now()),
+                new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO),
                 "TESTE",
                 "Rua de Teste, 1234",
                 "BRASILEIRA", "12:00",
                 "22:00",
-                "2024-06-01");
+                LocalDateTime.now());
 
         Assertions.assertTrue(restaurante.pertenceAoUsuario(2));
     }

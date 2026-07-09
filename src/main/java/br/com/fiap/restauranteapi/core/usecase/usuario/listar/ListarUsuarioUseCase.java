@@ -26,7 +26,7 @@ public class ListarUsuarioUseCase {
                 usuario.getSobrenome(),
                 usuario.getTipoUsuarioId(),
                 usuario.getSituacaoCadastro().getDescricao(),
-                usuario.getDataCriacao() == null ? null : usuario.getDataCriacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
+                usuario.getDataCriacao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"))
         );
     }
 }
