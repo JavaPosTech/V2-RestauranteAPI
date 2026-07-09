@@ -17,20 +17,14 @@ class UsuarioWebControllerTest extends AbstractControllerTest {
 
     @Test
     void salvarTest() throws Exception {
-        String json = Files.readString(
-                Paths.get("src/test/resources/usuario/salvarUsuario.json")
-        );
-
-        testPost("/v1/usuario", json);
+        String salvarUsuario = new String(Files.readAllBytes(Paths.get("src/test/resources/usuario/salvarUsuario.json")));
+        testPost("/v1/usuario", salvarUsuario);
     }
 
     @Test
     void atualizarTest() throws Exception {
-        String json = Files.readString(
-                Paths.get("src/test/resources/usuario/atualizarUsuario.json")
-        );
-
-        testPatch("/v1/usuario/1", json);
+        String atualizarUsuario = new String(Files.readAllBytes(Paths.get("src/test/resources/usuario/atualizarUsuario.json")));
+        testPatch("/v1/usuario/1", atualizarUsuario);
     }
 
     @Test

@@ -1,6 +1,5 @@
 package br.com.fiap.restauranteapi.infra.adapter.database.entity.usuario;
 
-import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

@@ -3,7 +3,6 @@ package br.com.fiap.restauranteapi.domain.cardapio;
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.cardapio.Cardapio;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
-import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import org.junit.jupiter.api.Assertions;

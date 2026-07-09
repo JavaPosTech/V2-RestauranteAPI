@@ -17,24 +17,16 @@ class DeletarUsuarioUseCaseTest extends AbstractTest {
 
     @Test
     void executarTest() {
-        Assertions.assertDoesNotThrow(
-                () -> deletarUsuarioUseCase.executar(1)
-        );
+        Assertions.assertDoesNotThrow(() -> deletarUsuarioUseCase.executar(1));
     }
 
     @Test
     void executarComUsuarioInexistenteTest() {
-        Assertions.assertThrows(
-                RegistroNaoEncontradoException.class,
-                () -> deletarUsuarioUseCase.executar(999)
-        );
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> deletarUsuarioUseCase.executar(999));
     }
 
     @Test
     void executarComIdNullTest() {
-        Assertions.assertThrows(
-                RegraDeNegocioException.class,
-                () -> deletarUsuarioUseCase.executar(null)
-        );
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> deletarUsuarioUseCase.executar(null));
     }
 }
