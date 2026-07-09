@@ -10,8 +10,6 @@ import java.util.Optional;
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer> {
 
-    List<UsuarioEntity> findAllBySituacaoCadastroId(Integer situacaoCadastroId);
-
     Optional<UsuarioEntity> findByIdAndSituacaoCadastroId(Integer id, Integer situacaoCadastroId);
 
 }

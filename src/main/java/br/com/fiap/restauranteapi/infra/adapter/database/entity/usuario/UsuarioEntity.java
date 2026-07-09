@@ -36,6 +36,6 @@ public class UsuarioEntity {
 
     @NotNull
     @Column(name = "id_situacaocadastro", nullable = false)
-    private Integer situacaoCadastroId = ESituacaoCadastro.ATIVO.getCodigo();
+    private Integer situacaoCadastroId;
 
 }
