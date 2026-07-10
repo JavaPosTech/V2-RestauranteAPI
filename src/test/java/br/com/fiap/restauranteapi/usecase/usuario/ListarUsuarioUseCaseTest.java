@@ -15,9 +15,7 @@ class ListarUsuarioUseCaseTest extends AbstractTest {
 
     @Test
     void executarTest() {
-        var usuarios = Assertions.assertDoesNotThrow(
-                () -> listarUsuarioUseCase.executar()
-        );
+        var usuarios = Assertions.assertDoesNotThrow(() -> listarUsuarioUseCase.executar());
 
         Assertions.assertNotNull(usuarios);
     }

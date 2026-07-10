@@ -13,8 +13,16 @@ public class RestauranteMapper {
 
     public static Restaurante toDomain(RestauranteRequest request) {
         Usuario usuario = new Usuario(request.usuarioId());
-        return new Restaurante(null, usuario, request.nome(), request.endereco(),
-                request.tipoCozinha(), request.horaAbertura(), request.horaFechamento(), null);
+        return new Restaurante(
+                null,
+                usuario,
+                request.nome(),
+                request.endereco(),
+                request.tipoCozinha(),
+                request.horaAbertura(),
+                request.horaFechamento(),
+                null
+        );
     }
 
     public static Restaurante toDomain(RestauranteEntity entity) {

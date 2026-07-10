@@ -25,9 +25,7 @@ class CriarUsuarioUseCaseTest extends AbstractTest {
                 1
         );
 
-        Assertions.assertDoesNotThrow(
-                () -> criarUsuarioUseCase.executar(usuario)
-        );
+        Assertions.assertDoesNotThrow(() -> criarUsuarioUseCase.executar(usuario));
     }
 
     @Test
@@ -38,22 +36,15 @@ class CriarUsuarioUseCaseTest extends AbstractTest {
                 999
         );
 
-        Assertions.assertThrows(
-                RegistroNaoEncontradoException.class,
-                () -> criarUsuarioUseCase.executar(usuario)
-        );
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> criarUsuarioUseCase.executar(usuario));
     }
 
     @Test
     void executarComTipoUsuarioNullTest() {
         Usuario usuario = Mockito.mock(Usuario.class);
 
-        Mockito.when(usuario.getTipoUsuarioId())
-                .thenReturn(null);
+        Mockito.when(usuario.getTipoUsuarioId()).thenReturn(null);
 
-        Assertions.assertThrows(
-                RegraDeNegocioException.class,
-                () -> criarUsuarioUseCase.executar(usuario)
-        );
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> criarUsuarioUseCase.executar(usuario));
     }
 }

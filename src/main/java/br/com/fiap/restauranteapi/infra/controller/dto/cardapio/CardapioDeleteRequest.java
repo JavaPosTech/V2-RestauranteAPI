@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record CardapioDeleteRequest(
 
-        @NotNull(message = "O ID do usuário é obrigatório")
+        @NotNull(message = "O ID do usuário é obrigatório!")
         Integer usuarioId
 
 ) {}

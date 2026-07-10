@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface CardapioRepository extends JpaRepository<CardapioEntity, Integer> {
+
     List<CardapioEntity> findByRestauranteId(Integer restauranteId);
+
 }
