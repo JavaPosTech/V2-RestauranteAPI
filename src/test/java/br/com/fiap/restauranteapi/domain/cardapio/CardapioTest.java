@@ -1,18 +1,20 @@
 package br.com.fiap.restauranteapi.domain.cardapio;
 
+import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.cardapio.Cardapio;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
-import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
-
+import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CardapioTest {
+@SpringBootTest
+class CardapioTest extends AbstractTest {
 
     @Test
     void deveCriarCardapioComDadosValidos() {
@@ -408,11 +410,11 @@ class CardapioTest {
     private Restaurante criarRestauranteValido() {
         return new Restaurante(
                 1,
-                new Usuario(1, "João", "Silva", new TipoUsuario(1, "CLIENTE"), LocalDateTime.now()),
+                new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO),
                 "TESTE",
                 "Rua de Teste, 1234",
                 "BRASILEIRA", "12:00",
                 "22:00",
-                "2024-06-01");
+                LocalDateTime.now());
     }
 }

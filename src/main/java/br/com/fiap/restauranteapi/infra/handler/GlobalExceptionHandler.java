@@ -1,7 +1,7 @@
 package br.com.fiap.restauranteapi.infra.handler;
 
-import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
+import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.infra.handler.dto.ErrorResponseDTO;
 import br.com.fiap.restauranteapi.infra.handler.dto.MethodArgumentNotValidResponseDTO;
 import jakarta.persistence.EntityNotFoundException;

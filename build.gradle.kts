@@ -88,6 +88,7 @@ tasks.named<JacocoReport>("jacocoTestReport") {
 					exclude(
 						"**/core/dto/**",
 						"**/application/**",
+						"**/core/enums/**",
 						"**/infra/config/**",
 						"**/infra/handler/**",
 						"**/core/exceptions/**",

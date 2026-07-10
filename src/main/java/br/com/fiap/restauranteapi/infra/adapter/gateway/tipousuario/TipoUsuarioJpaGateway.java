@@ -7,6 +7,7 @@ import br.com.fiap.restauranteapi.infra.adapter.mapper.tipousuario.TipoUsuarioMa
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.Optional;
 

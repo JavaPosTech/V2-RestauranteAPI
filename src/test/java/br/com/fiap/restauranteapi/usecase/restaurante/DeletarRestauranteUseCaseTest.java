@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.usecase;
+package br.com.fiap.restauranteapi.usecase.restaurante;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;

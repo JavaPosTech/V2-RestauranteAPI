@@ -33,4 +33,8 @@ public class UsuarioEntity {
     @Column(name = "data_criacao", insertable = false, updatable = false)
     private LocalDateTime dataCriacao;
 
+    @NotNull
+    @Column(name = "id_situacaocadastro", nullable = false)
+    private Integer situacaoCadastroId;
+
 }

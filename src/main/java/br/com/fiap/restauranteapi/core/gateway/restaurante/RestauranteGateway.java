@@ -1,8 +1,8 @@
 package br.com.fiap.restauranteapi.core.gateway.restaurante;
 
-import java.util.Optional;
-
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
+
+import java.util.Optional;
 
 public interface RestauranteGateway {
 
