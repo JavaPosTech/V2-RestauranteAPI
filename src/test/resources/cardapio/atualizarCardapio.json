@@ -1,0 +1,9 @@
+{
+  "restauranteId": 1,
+  "usuarioId": 1,
+  "nome": "Feijoada Especial",
+  "descricao": "Feijoada completa com arroz, couve e farofa",
+  "preco": 45.90,
+  "consumoLocal": true,
+  "foto": "feijoada-especial.jpg"
+}

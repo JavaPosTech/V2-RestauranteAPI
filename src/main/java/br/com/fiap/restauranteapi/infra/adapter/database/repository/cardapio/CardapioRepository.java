@@ -4,7 +4,9 @@ import br.com.fiap.restauranteapi.infra.adapter.database.entity.cardapio.Cardapi
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CardapioRepository extends JpaRepository<CardapioEntity, Integer> {
-
+    List<CardapioEntity> findByRestauranteId(Integer restauranteId);
 }

@@ -53,6 +53,17 @@ public class Restaurante {
         this.dataCriacao = dataCriacao;
     }
 
+    public Restaurante(Integer id) {
+        this.id = id;
+    }
+
+    public Restaurante(Integer id, Usuario usuario) {
+        validarUsuarioObrigatorio(usuario);
+
+        this.id = id;
+        this.usuario = usuario;
+    }
+
     public boolean pertenceAoUsuario(Integer usuarioId) {
         return !this.usuario.getId().equals(usuarioId);
     }
