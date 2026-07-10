@@ -1,0 +1,9 @@
+{
+  "restauranteId": 1,
+  "usuarioId": 1,
+  "nome": "X-Burger Artesanal",
+  "descricao": "Hambúrguer artesanal com queijo e molho especial",
+  "preco": 29.90,
+  "consumoLocal": true,
+  "foto": "x-burger.jpg"
+}
