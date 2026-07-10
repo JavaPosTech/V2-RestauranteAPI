@@ -21,8 +21,8 @@ class AtualizarCardapioUseCaseTest extends AbstractTest {
     private AtualizarCardapioUseCase atualizarCardapioUseCase;
 
     private Cardapio cardapioValido(Integer usuarioId) {
-        Usuario usuario = new Usuario(usuarioId, null, null, null, null);
-        Restaurante restaurante = new Restaurante(1, usuario, null, null, null, null, null, null);
+        Usuario usuario = new Usuario(usuarioId);
+        Restaurante restaurante = new Restaurante(1, usuario);
 
         return new Cardapio(
                 null,
@@ -42,13 +42,11 @@ class AtualizarCardapioUseCaseTest extends AbstractTest {
 
     @Test
     void executarTestComCardapioInexistente() {
-        Assertions.assertThrows(RegistroNaoEncontradoException.class,
-                () -> atualizarCardapioUseCase.executar(999, cardapioValido(1)));
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarCardapioUseCase.executar(999, cardapioValido(1)));
     }
 
     @Test
     void executarTestComUsuarioNaoDono() {
-        Assertions.assertThrows(RegraDeNegocioException.class,
-                () -> atualizarCardapioUseCase.executar(1, cardapioValido(2)));
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> atualizarCardapioUseCase.executar(1, cardapioValido(2)));
     }
 }

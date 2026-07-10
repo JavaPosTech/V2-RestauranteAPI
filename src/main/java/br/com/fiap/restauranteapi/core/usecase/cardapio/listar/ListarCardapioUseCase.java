@@ -21,8 +21,7 @@ public class ListarCardapioUseCase {
                         cardapio.getPreco(),
                         cardapio.isConsumoLocal(),
                         cardapio.getFoto()
-                ))
-                .toList();
+                )).toList();
     }
 
     public List<CardapioDTO> executarPorRestaurante(Integer restauranteId) {
@@ -35,7 +34,6 @@ public class ListarCardapioUseCase {
                         cardapio.getPreco(),
                         cardapio.isConsumoLocal(),
                         cardapio.getFoto()
-                ))
-                .toList();
+                )).toList();
     }
 }

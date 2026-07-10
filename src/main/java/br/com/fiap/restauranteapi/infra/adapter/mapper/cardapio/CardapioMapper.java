@@ -11,8 +11,8 @@ public class CardapioMapper {
     private CardapioMapper() {}
 
     public static Cardapio toDomain(CardapioRequest request) {
-        Usuario usuario = new Usuario(request.usuarioId(), null, null, null, null);
-        Restaurante restaurante = new Restaurante(request.restauranteId(), usuario, null, null, null, null, null, null);
+        Usuario usuario = new Usuario(request.usuarioId());
+        Restaurante restaurante = new Restaurante(request.restauranteId(), usuario);
 
         return new Cardapio(
                 null,
@@ -26,7 +26,7 @@ public class CardapioMapper {
     }
 
     public static Cardapio toDomain(CardapioEntity entity) {
-        Restaurante restaurante = new Restaurante(entity.getRestauranteId(), null, null, null, null, null, null, null);
+        Restaurante restaurante = new Restaurante(entity.getRestauranteId());
 
         return new Cardapio(
                 entity.getId(),

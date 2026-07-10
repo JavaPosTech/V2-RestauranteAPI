@@ -27,8 +27,7 @@ public class AtualizarCardapioUseCase extends CardapioAbstractUseCase {
                 cardapio.getDescricao(),
                 cardapio.getPreco(),
                 cardapio.isConsumoLocal(),
-                cardapio.getFoto()
-        ));
+                cardapio.getFoto()));
 
         return new MensagemSucessoResponse(200, "Item do cardápio atualizado com sucesso!");
     }

@@ -57,10 +57,7 @@ public class Cardapio {
     }
 
     public boolean pertenceAoRestaurante(Integer restauranteId) {
-        return restauranteId != null
-                && restaurante != null
-                && restaurante.getId() != null
-                && restaurante.getId().equals(restauranteId);
+        return restaurante != null && restaurante.getId() != null && restaurante.getId().equals(restauranteId);
     }
 
     public boolean possuiPrecoValido() {
