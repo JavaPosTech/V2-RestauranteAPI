@@ -57,11 +57,7 @@ public class Cardapio {
     }
 
     public boolean pertenceAoRestaurante(Integer restauranteId) {
-        return restaurante != null && restaurante.getId() != null && restaurante.getId().equals(restauranteId);
-    }
-
-    public boolean possuiPrecoValido() {
-        return preco != null && preco.compareTo(BigDecimal.ZERO) > 0;
+        return restaurante.getId().equals(restauranteId);
     }
 
     public boolean permiteConsumoLocal() {
