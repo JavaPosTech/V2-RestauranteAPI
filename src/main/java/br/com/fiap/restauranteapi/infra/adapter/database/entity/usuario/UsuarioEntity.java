@@ -1,5 +1,6 @@
 package br.com.fiap.restauranteapi.infra.adapter.database.entity.usuario;
 
+import br.com.fiap.restauranteapi.infra.adapter.database.entity.tipousuario.TipoUsuarioEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -27,8 +28,9 @@ public class UsuarioEntity {
     private String sobrenome;
 
     @NotNull
-    @Column(name = "id_tipousuario", nullable = false)
-    private Integer tipoUsuarioId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_tipousuario", nullable = false)
+    private TipoUsuarioEntity tipoUsuario;
 
     @Column(name = "data_criacao", insertable = false, updatable = false)
     private LocalDateTime dataCriacao;

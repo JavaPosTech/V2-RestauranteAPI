@@ -11,14 +11,14 @@ public record UsuarioDTO(
 
         String sobrenome,
 
-        Integer tipoUsuarioId,
+        String tipoUsuario,
 
         String situacaoCadastro,
 
         String dataCriacao
 
 ) {
-    public UsuarioDTO(Integer id, String nome, String sobrenome, Integer tipoUsuarioId, String situacaoCadastro, LocalDateTime dataCriacao) {
-        this(id, nome, sobrenome, tipoUsuarioId, situacaoCadastro, dataCriacao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+    public UsuarioDTO(Integer id, String nome, String sobrenome, String tipoUsuarioId, String situacaoCadastro, LocalDateTime dataCriacao) {
+        this(id, nome, sobrenome, tipoUsuarioId, situacaoCadastro, dataCriacao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm:ss")));
     }
 }

@@ -1,0 +1,460 @@
+{
+  "info": {
+    "_postman_id": "06ff5760-4d36-4c25-98d0-220cc211bf6a",
+    "name": "FIAP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "36784829"
+  },
+  "item": [
+    {
+      "name": "V2 - RestauranteAPI",
+      "item": [
+        {
+          "name": "Tipo Usuário",
+          "item": [
+            {
+              "name": "Listar",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}/v1/tipousuario",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "tipousuario"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Salvar",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"descricao\": \"TESTE\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/tipousuario",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "tipousuario"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Atualizar",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"descricao\": \"TESTE ATUALIZADO\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/tipousuario/3",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "tipousuario",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Deletar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}/v1/tipousuario/3",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "tipousuario",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Usuário",
+          "item": [
+            {
+              "name": "Listar",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}/v1/usuario",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "usuario"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Salvar",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nome\": \"teste\",\r\n    \"sobrenome\": \"teste sobrenome\",\r\n    \"tipoUsuarioId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/usuario",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "usuario"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Atualizar",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nome\": \"teste atualizado\",\r\n    \"sobrenome\": \"teste sobrenome atualizado\",\r\n    \"tipoUsuarioId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/usuario/6",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "usuario",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Deletar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}/v1/usuario/6",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "usuario",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Restaurante",
+          "item": [
+            {
+              "name": "Listar",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}/v1/restaurante",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "restaurante"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Listar Por Id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}/v1/restaurante/1",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "restaurante",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Salvar",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"usuarioId\": 1,\r\n  \"nome\": \"Restaurante Sabor Caseiro\",\r\n  \"endereco\": \"Rua das Flores, 123 - São Paulo/SP\",\r\n  \"tipoCozinha\": \"Brasileira\",\r\n  \"horaAbertura\": \"08:00\",\r\n  \"horaFechamento\": \"22:00\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/restaurante",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "restaurante"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Atualizar",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"usuarioId\": 1,\r\n  \"nome\": \"Restaurante Sabor Caseiro Premium\",\r\n  \"endereco\": \"Avenida Paulista, 1500 - São Paulo/SP\",\r\n  \"tipoCozinha\": \"Italiana\",\r\n  \"horaAbertura\": \"11:00\",\r\n  \"horaFechamento\": \"23:00\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/restaurante/4",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "restaurante",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Deletar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"usuarioId\": 1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/restaurante/5",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "restaurante",
+                    "5"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Cardápio",
+          "item": [
+            {
+              "name": "Listar",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}/v1/cardapio",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "cardapio"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Listar Por Restaurante",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{URL}}/v1/cardapio/restaurante/1",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "cardapio",
+                    "restaurante",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Salvar",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"restauranteId\": 1,\r\n  \"usuarioId\": 1,\r\n  \"nome\": \"Filé à Parmegiana\",\r\n  \"descricao\": \"Filé bovino empanado com molho de tomate, queijo gratinado, arroz e fritas.\",\r\n  \"preco\": 59.90,\r\n  \"consumoLocal\": true,\r\n  \"foto\": \"https://exemplo.com/imagens/file-parmegiana.jpg\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/cardapio",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "cardapio"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Atualizar",
+              "request": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"restauranteId\": 1,\r\n  \"usuarioId\": 1,\r\n  \"nome\": \"Filé à Parmegiana Especial\",\r\n  \"descricao\": \"Filé bovino empanado\",\r\n  \"preco\": 64.90,\r\n  \"consumoLocal\": false,\r\n  \"foto\": \"https://exemplo.com/imagens/file-parmegiana-especial.jpg\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/cardapio/6",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "cardapio",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Deletar",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"usuarioId\": \"1\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{URL}}/v1/cardapio/6",
+                  "host": [
+                    "{{URL}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "cardapio",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

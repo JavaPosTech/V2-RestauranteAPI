@@ -2,6 +2,7 @@ package br.com.fiap.restauranteapi.domain.restaurante;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
+import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 class RestauranteTest extends AbstractTest {
 
     private Usuario usuarioValido() {
-        return new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO);
+        return new Usuario(1, "João", "Silva", new TipoUsuario(1), LocalDateTime.now(), ESituacaoCadastro.ATIVO);
     }
 
     private Restaurante criarRestaurante(
@@ -34,7 +35,7 @@ class RestauranteTest extends AbstractTest {
     void domainTest() {
         Restaurante restaurante = new Restaurante(
                 1,
-                new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO),
+                new Usuario(1, "João", "Silva", new TipoUsuario(1), LocalDateTime.now(), ESituacaoCadastro.ATIVO),
                 "TESTE",
                 "Rua de Teste, 1234",
                 "BRASILEIRA", "12:00",
@@ -53,7 +54,7 @@ class RestauranteTest extends AbstractTest {
 
     @Test
     void usuarioSemIdTest() {
-        Usuario usuarioSemId = new Usuario(null, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO);
+        Usuario usuarioSemId = new Usuario(null, "João", "Silva", new TipoUsuario(1), LocalDateTime.now(), ESituacaoCadastro.ATIVO);
 
         Assertions.assertThrows(RegraDeNegocioException.class, () ->
                 criarRestaurante(usuarioSemId, "TESTE", "Rua de Teste, 1234", "BRASILEIRA", "12:00", "22:00", LocalDateTime.now()));
@@ -153,7 +154,7 @@ class RestauranteTest extends AbstractTest {
     void pertenceAoUsuarioTest() {
         Restaurante restaurante = new Restaurante(
                 1,
-                new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO),
+                new Usuario(1, "João", "Silva", new TipoUsuario(1), LocalDateTime.now(), ESituacaoCadastro.ATIVO),
                 "TESTE",
                 "Rua de Teste, 1234",
                 "BRASILEIRA", "12:00",
@@ -167,7 +168,7 @@ class RestauranteTest extends AbstractTest {
     void naoPertenceAoUsuarioTest() {
         Restaurante restaurante = new Restaurante(
                 1,
-                new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO),
+                new Usuario(1, "João", "Silva", new TipoUsuario(1), LocalDateTime.now(), ESituacaoCadastro.ATIVO),
                 "TESTE",
                 "Rua de Teste, 1234",
                 "BRASILEIRA", "12:00",

@@ -25,15 +25,15 @@ public class AtualizarUsuarioUseCase {
             return new RegistroNaoEncontradoException("O Usuário solicitado não foi encontrado!");
         });
 
-        if (usuario.getTipoUsuarioId() != null) {
-            validarTipoUsuario(usuario.getTipoUsuarioId());
+        if (usuario.getTipoUsuario() != null) {
+            validarTipoUsuario(usuario.getTipoUsuario().getId());
         }
 
         var usuarioAtualizado = new Usuario(
                 id,
                 usuario.getNome() == null ? usuarioAtual.getNome() : usuario.getNome(),
                 usuario.getSobrenome() == null ? usuarioAtual.getSobrenome() : usuario.getSobrenome(),
-                usuario.getTipoUsuarioId() == null ? usuarioAtual.getTipoUsuarioId() : usuario.getTipoUsuarioId(),
+                usuario.getTipoUsuario() == null ? usuarioAtual.getTipoUsuario() : usuario.getTipoUsuario(),
                 usuarioAtual.getDataCriacao(),
                 usuarioAtual.getSituacaoCadastro());
 

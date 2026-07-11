@@ -9,6 +9,8 @@ import br.com.fiap.restauranteapi.core.usecase.restaurante.deletar.RestauranteDe
 import br.com.fiap.restauranteapi.core.usecase.restaurante.listar.RestauranteListarUseCase;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 public class RestauranteController {
 
@@ -20,7 +22,11 @@ public class RestauranteController {
 
     private final RestauranteAtualizarUseCase restauranteAtualizarUseCase;
 
-    public RestauranteDTO buscar(Integer id) {
+    public List<RestauranteDTO> buscar() {
+        return restauranteListarUseCase.executar();
+    }
+
+    public RestauranteDTO buscarPorId(Integer id) {
         return restauranteListarUseCase.executar(id);
     }
 

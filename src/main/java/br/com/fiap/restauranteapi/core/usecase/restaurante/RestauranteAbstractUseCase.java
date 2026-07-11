@@ -46,9 +46,9 @@ public abstract class RestauranteAbstractUseCase {
             return new RegistroNaoEncontradoException("Usuário Dono de Restaurante não encontrado");
         });
 
-        if (!Objects.equals(usuario.getTipoUsuarioId(), ETipoUsuario.DONO_RESTAURANTE.getCodigo())) {
+        if (!Objects.equals(usuario.getTipoUsuario().getId(), ETipoUsuario.DONO_RESTAURANTE.getId())) {
             log.error("O Usuário não é Dono de Restaurante! ID: {}", usuarioId);
-            throw new RegraDeNegocioException("Somente usuários do tipo Dono de Restaurante podem cadastrar um restaurante!");
+            throw new RegraDeNegocioException("Somente Usuários do Tipo Dono de Restaurante podem cadastrar um restaurante!");
         }
     }
 }

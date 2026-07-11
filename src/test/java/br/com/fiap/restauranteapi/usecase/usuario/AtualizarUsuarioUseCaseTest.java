@@ -1,6 +1,7 @@
 package br.com.fiap.restauranteapi.usecase.usuario;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
+import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
@@ -43,7 +44,7 @@ class AtualizarUsuarioUseCaseTest extends AbstractTest {
         Usuario usuario = Usuario.atualizar(
                 null,
                 null,
-                999
+                new TipoUsuario(999)
         );
 
         Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarUsuarioUseCase.executar(1, usuario));

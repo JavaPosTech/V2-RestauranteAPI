@@ -1,6 +1,7 @@
 package br.com.fiap.restauranteapi.usecase.usuario;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
+import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
@@ -22,7 +23,7 @@ class CriarUsuarioUseCaseTest extends AbstractTest {
         Usuario usuario = Usuario.criar(
                 "Eduardo",
                 "Germano",
-                1
+                new TipoUsuario(1)
         );
 
         Assertions.assertDoesNotThrow(() -> criarUsuarioUseCase.executar(usuario));
@@ -33,7 +34,7 @@ class CriarUsuarioUseCaseTest extends AbstractTest {
         Usuario usuario = Usuario.criar(
                 "Eduardo",
                 "Germano",
-                999
+                new TipoUsuario(999)
         );
 
         Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> criarUsuarioUseCase.executar(usuario));
@@ -43,7 +44,7 @@ class CriarUsuarioUseCaseTest extends AbstractTest {
     void executarComTipoUsuarioNullTest() {
         Usuario usuario = Mockito.mock(Usuario.class);
 
-        Mockito.when(usuario.getTipoUsuarioId()).thenReturn(null);
+        Mockito.when(usuario.getTipoUsuario()).thenReturn(null);
 
         Assertions.assertThrows(RegraDeNegocioException.class, () -> criarUsuarioUseCase.executar(usuario));
     }

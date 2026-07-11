@@ -18,7 +18,7 @@ public class CriarUsuarioUseCase {
     private final TipoUsuarioGateway tipoUsuarioGateway;
 
     public MensagemSucessoResponse executar(Usuario usuario) {
-        validarTipoUsuario(usuario.getTipoUsuarioId());
+        validarTipoUsuario(usuario.getTipoUsuario().getId());
 
         usuarioGateway.save(usuario);
 

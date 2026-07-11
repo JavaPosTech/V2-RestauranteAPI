@@ -23,7 +23,7 @@ public class ListarUsuarioUseCase {
                 usuario.getId(),
                 usuario.getNome(),
                 usuario.getSobrenome(),
-                usuario.getTipoUsuarioId(),
+                usuario.getTipoUsuario().getDescricao(),
                 usuario.getSituacaoCadastro().getDescricao(),
                 usuario.getDataCriacao());
     }

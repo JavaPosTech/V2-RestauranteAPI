@@ -32,12 +32,7 @@ public abstract class CardapioAbstractUseCase {
     }
 
     protected void validarDonoRestaurante(Restaurante restaurante, Integer usuarioId) {
-        if (usuarioId == null
-                || restaurante == null
-                || restaurante.getUsuario() == null
-                || restaurante.getUsuario().getId() == null
-                || !restaurante.getUsuario().getId().equals(usuarioId)) {
-
+        if (restaurante == null || restaurante.getUsuario() == null || restaurante.getUsuario().getId() == null || !restaurante.getUsuario().getId().equals(usuarioId)) {
             log.error("Usuário {} tentou alterar o Cardápio sem ser o Dono do Restaurante!", usuarioId);
             throw new RegraDeNegocioException("Somente o Dono do Restaurante pode alterar o Cardápio!");
         }

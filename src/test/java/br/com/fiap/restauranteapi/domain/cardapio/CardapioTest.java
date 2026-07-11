@@ -3,6 +3,7 @@ package br.com.fiap.restauranteapi.domain.cardapio;
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.cardapio.Cardapio;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
+import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import org.junit.jupiter.api.Test;
@@ -393,7 +394,7 @@ class CardapioTest extends AbstractTest {
     private Restaurante criarRestauranteValido() {
         return new Restaurante(
                 1,
-                new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO),
+                new Usuario(1, "João", "Silva", new TipoUsuario(1), LocalDateTime.now(), ESituacaoCadastro.ATIVO),
                 "TESTE",
                 "Rua de Teste, 1234",
                 "BRASILEIRA", "12:00",
