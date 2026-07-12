@@ -47,7 +47,7 @@ public class Usuario {
     }
 
     private Usuario(String nome, String sobrenome, TipoUsuario tipoUsuario) {
-        validarAoMenosUmCampo(nome, sobrenome, tipoUsuario.getId());
+        validarAoMenosUmCampo(nome, sobrenome, tipoUsuario);
         validarNomeSeInformado(nome);
         validarSobrenomeSeInformado(sobrenome);
 
@@ -89,8 +89,8 @@ public class Usuario {
         }
     }
 
-    private void validarAoMenosUmCampo(String nome, String sobrenome, Integer tipoUsuarioId) {
-        if (nome == null && sobrenome == null && tipoUsuarioId == null) {
+    private void validarAoMenosUmCampo(String nome, String sobrenome, TipoUsuario tipoUsuario) {
+        if (nome == null && sobrenome == null && tipoUsuario == null) {
             throw new RegraDeNegocioException("Informe ao menos um campo para atualizar o Usuário!");
         }
     }
