@@ -10,6 +10,10 @@ public class TipoUsuario {
 
     private String descricao;
 
+    public TipoUsuario(Integer id) {
+        this.id = id;
+    }
+
     public TipoUsuario(Integer id, String descricao) {
         if (descricao == null || descricao.isBlank()) {
             throw new RegraDeNegocioException("A descrição do Tipo de Usuário é obrigatória!");

@@ -14,38 +14,22 @@ import org.springframework.context.annotation.Configuration;
 public class UsuarioBean {
 
     @Bean
-    public CriarUsuarioUseCase criarUsuarioUseCase(
-            UsuarioGateway usuarioGateway,
-            TipoUsuarioGateway tipoUsuarioGateway
-    ) {
-        return new CriarUsuarioUseCase(
-                usuarioGateway,
-                tipoUsuarioGateway
-        );
+    public CriarUsuarioUseCase criarUsuarioUseCase(UsuarioGateway usuarioGateway, TipoUsuarioGateway tipoUsuarioGateway) {
+        return new CriarUsuarioUseCase(usuarioGateway, tipoUsuarioGateway);
     }
 
     @Bean
-    public ListarUsuarioUseCase listarUsuarioUseCase(
-            UsuarioGateway usuarioGateway
-    ) {
+    public ListarUsuarioUseCase listarUsuarioUseCase(UsuarioGateway usuarioGateway) {
         return new ListarUsuarioUseCase(usuarioGateway);
     }
 
     @Bean
-    public AtualizarUsuarioUseCase atualizarUsuarioUseCase(
-            UsuarioGateway usuarioGateway,
-            TipoUsuarioGateway tipoUsuarioGateway
-    ) {
-        return new AtualizarUsuarioUseCase(
-                usuarioGateway,
-                tipoUsuarioGateway
-        );
+    public AtualizarUsuarioUseCase atualizarUsuarioUseCase(UsuarioGateway usuarioGateway, TipoUsuarioGateway tipoUsuarioGateway) {
+        return new AtualizarUsuarioUseCase(usuarioGateway, tipoUsuarioGateway);
     }
 
     @Bean
-    public DeletarUsuarioUseCase deletarUsuarioUseCase(
-            UsuarioGateway usuarioGateway
-    ) {
+    public DeletarUsuarioUseCase deletarUsuarioUseCase(UsuarioGateway usuarioGateway) {
         return new DeletarUsuarioUseCase(usuarioGateway);
     }
 

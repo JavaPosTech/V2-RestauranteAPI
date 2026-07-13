@@ -17,71 +17,41 @@ public class AtualizarUsuarioUseCase {
 
     private final TipoUsuarioGateway tipoUsuarioGateway;
 
-    public MensagemSucessoResponse executar(
-            Integer id,
-            Usuario usuario
-    ) {
+    public MensagemSucessoResponse executar(Integer id, Usuario usuario) {
         validarId(id);
 
-        var usuarioAtual = usuarioGateway.findById(id)
-                .orElseThrow(() -> {
-                    log.error(
-                            "O Usuário solicitado não foi encontrado! ID: {}",
-                            id
-                    );
+        var usuarioAtual = usuarioGateway.findById(id).orElseThrow(() -> {
+            log.error("O Usuário solicitado não foi encontrado! ID: {}", id);
+            return new RegistroNaoEncontradoException("O Usuário solicitado não foi encontrado!");
+        });
 
-                    return new RegistroNaoEncontradoException(
-                            "O Usuário solicitado não foi encontrado!"
-                    );
-                });
-
-        if (usuario.getTipoUsuarioId() != null) {
-            validarTipoUsuario(usuario.getTipoUsuarioId());
+        if (usuario.getTipoUsuario() != null) {
+            validarTipoUsuario(usuario.getTipoUsuario().getId());
         }
 
         var usuarioAtualizado = new Usuario(
                 id,
-                usuario.getNome() == null
-                        ? usuarioAtual.getNome()
-                        : usuario.getNome(),
-                usuario.getSobrenome() == null
-                        ? usuarioAtual.getSobrenome()
-                        : usuario.getSobrenome(),
-                usuario.getTipoUsuarioId() == null
-                        ? usuarioAtual.getTipoUsuarioId()
-                        : usuario.getTipoUsuarioId(),
+                usuario.getNome() == null ? usuarioAtual.getNome() : usuario.getNome(),
+                usuario.getSobrenome() == null ? usuarioAtual.getSobrenome() : usuario.getSobrenome(),
+                usuario.getTipoUsuario() == null ? usuarioAtual.getTipoUsuario() : usuario.getTipoUsuario(),
                 usuarioAtual.getDataCriacao(),
-                usuarioAtual.getSituacaoCadastro()
-        );
+                usuarioAtual.getSituacaoCadastro());
 
         usuarioGateway.save(usuarioAtualizado);
-
-        return new MensagemSucessoResponse(
-                200,
-                "Usuário atualizado com sucesso!"
-        );
+        return new MensagemSucessoResponse(200, "Usuário atualizado com sucesso!");
     }
 
     private void validarId(Integer id) {
         if (id == null) {
             log.error("O ID do Usuário é obrigatório para atualizar!");
-
-            throw new RegraDeNegocioException(
-                    "O ID do Usuário é obrigatório!"
-            );
+            throw new RegraDeNegocioException("O ID do Usuário é obrigatório!");
         }
     }
 
     private void validarTipoUsuario(Integer tipoUsuarioId) {
         if (tipoUsuarioGateway.findById(tipoUsuarioId).isEmpty()) {
-            log.error(
-                    "O Tipo de Usuário informado não foi encontrado! ID: {}",
-                    tipoUsuarioId
-            );
-
-            throw new RegistroNaoEncontradoException(
-                    "O Tipo de Usuário informado não foi encontrado!"
-            );
+            log.error("O Tipo de Usuário informado não foi encontrado! ID: {}", tipoUsuarioId);
+            throw new RegistroNaoEncontradoException("O Tipo de Usuário informado não foi encontrado!");
         }
     }
 }

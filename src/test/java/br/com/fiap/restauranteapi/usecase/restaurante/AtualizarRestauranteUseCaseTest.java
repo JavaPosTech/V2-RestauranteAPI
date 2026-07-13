@@ -28,19 +28,16 @@ class AtualizarRestauranteUseCaseTest extends AbstractTest {
 
     @Test
     void executarTestComRestauranteInexistente() {
-        Assertions.assertThrows(RegistroNaoEncontradoException.class,
-                () -> restauranteAtualizarUseCase.executar(999, restauranteValido(1)));
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> restauranteAtualizarUseCase.executar(999, restauranteValido(1)));
     }
 
     @Test
     void executarTestComUsuarioInexistente() {
-        Assertions.assertThrows(RegistroNaoEncontradoException.class,
-                () -> restauranteAtualizarUseCase.executar(1, restauranteValido(999)));
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> restauranteAtualizarUseCase.executar(1, restauranteValido(999)));
     }
 
     @Test
     void executarTestComUsuarioNaoDono() {
-        Assertions.assertThrows(RegraDeNegocioException.class,
-                () -> restauranteAtualizarUseCase.executar(1, restauranteValido(2)));
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> restauranteAtualizarUseCase.executar(1, restauranteValido(2)));
     }
 }

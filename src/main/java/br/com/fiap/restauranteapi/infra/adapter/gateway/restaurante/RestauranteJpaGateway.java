@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Component
@@ -15,6 +16,14 @@ import java.util.Optional;
 public class RestauranteJpaGateway implements RestauranteGateway {
 
     private final RestauranteRepository restauranteRepository;
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Restaurante> findAll() {
+        return restauranteRepository.findAll().stream()
+                .map(RestauranteMapper::toDomain)
+                .toList();
+    }
 
     @Override
     @Transactional(readOnly = true)

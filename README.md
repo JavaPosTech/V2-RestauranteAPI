@@ -36,6 +36,10 @@
 
 <br> 
 
+🔹 `Testes de Integração`, realiza a execução dos testes de integração da aplicação, garantindo que os diferentes componentes do sistema funcionem corretamente em conjunto.
+
+<br> 
+
 ## 🛠️ Desenvolvimento 
 
 Para o ambiente de desenvolvimento, o projeto disponibiliza o arquivo `docker-compose-postgres.yml`, já configurado com todas as variáveis necessárias para conexão com o banco de dados. 

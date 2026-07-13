@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.repository;
+package br.com.fiap.restauranteapi.repository.tipousuario;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.infra.adapter.database.repository.tipousuario.TipoUsuarioRepository;

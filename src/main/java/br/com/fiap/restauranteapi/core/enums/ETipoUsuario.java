@@ -8,9 +8,9 @@ public enum ETipoUsuario {
     CLIENTE(1),
     DONO_RESTAURANTE(2);
 
-    private final Integer codigo;
+    private final Integer id;
 
-    ETipoUsuario(Integer codigo) {
-        this.codigo = codigo;
+    ETipoUsuario(Integer id) {
+        this.id = id;
     }
 }

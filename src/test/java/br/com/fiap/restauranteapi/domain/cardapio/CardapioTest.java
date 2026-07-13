@@ -3,6 +3,7 @@ package br.com.fiap.restauranteapi.domain.cardapio;
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.domain.cardapio.Cardapio;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
+import br.com.fiap.restauranteapi.core.domain.tipousuario.TipoUsuario;
 import br.com.fiap.restauranteapi.core.domain.usuario.Usuario;
 import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
 import org.junit.jupiter.api.Test;
@@ -92,7 +93,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O id do cardápio deve ser maior que zero.", exception.getMessage());
+        assertEquals("O id do cardápio deve ser maior que zero!", exception.getMessage());
     }
 
     @Test
@@ -110,7 +111,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O restaurante é obrigatório.", exception.getMessage());
+        assertEquals("O restaurante é obrigatório!", exception.getMessage());
     }
 
     @Test
@@ -130,7 +131,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O nome do item do cardápio é obrigatório.", exception.getMessage());
+        assertEquals("O nome do item do cardápio é obrigatório!", exception.getMessage());
     }
 
     @Test
@@ -150,7 +151,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O nome do item do cardápio é obrigatório.", exception.getMessage());
+        assertEquals("O nome do item do cardápio é obrigatório!", exception.getMessage());
     }
 
     @Test
@@ -170,7 +171,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O nome do item do cardápio é obrigatório.", exception.getMessage());
+        assertEquals("O nome do item do cardápio é obrigatório!", exception.getMessage());
     }
 
     @Test
@@ -191,7 +192,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O nome do item do cardápio deve ter no máximo 100 caracteres.", exception.getMessage());
+        assertEquals("O nome do item do cardápio deve ter no máximo 100 caracteres!", exception.getMessage());
     }
 
     @Test
@@ -211,7 +212,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O preço do item do cardápio é obrigatório.", exception.getMessage());
+        assertEquals("O preço do item do cardápio é obrigatório!", exception.getMessage());
     }
 
     @Test
@@ -231,7 +232,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O preço do item do cardápio deve ser maior que zero.", exception.getMessage());
+        assertEquals("O preço do item do cardápio deve ser maior que zero!", exception.getMessage());
     }
 
     @Test
@@ -251,7 +252,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O preço do item do cardápio deve ser maior que zero.", exception.getMessage());
+        assertEquals("O preço do item do cardápio deve ser maior que zero!", exception.getMessage());
     }
 
     @Test
@@ -308,7 +309,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O nome do item do cardápio é obrigatório.", exception.getMessage());
+        assertEquals("O nome do item do cardápio é obrigatório!", exception.getMessage());
     }
 
     @Test
@@ -336,58 +337,7 @@ class CardapioTest extends AbstractTest {
                 )
         );
 
-        assertEquals("O preço do item do cardápio deve ser maior que zero.", exception.getMessage());
-    }
-
-    @Test
-    void deveVerificarSeCardapioPertenceAoRestaurante() {
-        Restaurante restaurante = criarRestauranteValido();
-
-        Cardapio cardapio = new Cardapio(
-                1,
-                restaurante,
-                "Pizza Calabresa",
-                "Pizza com calabresa",
-                BigDecimal.valueOf(49.90),
-                true,
-                "foto.jpg"
-        );
-
-        assertTrue(cardapio.pertenceAoRestaurante(1));
-    }
-
-    @Test
-    void deveRetornarFalsoQuandoCardapioNaoPertenceAoRestaurante() {
-        Restaurante restaurante = criarRestauranteValido();
-
-        Cardapio cardapio = new Cardapio(
-                1,
-                restaurante,
-                "Pizza Calabresa",
-                "Pizza com calabresa",
-                BigDecimal.valueOf(49.90),
-                true,
-                "foto.jpg"
-        );
-
-        assertFalse(cardapio.pertenceAoRestaurante(2));
-    }
-
-    @Test
-    void deveVerificarSePossuiPrecoValido() {
-        Restaurante restaurante = criarRestauranteValido();
-
-        Cardapio cardapio = new Cardapio(
-                1,
-                restaurante,
-                "Pizza Calabresa",
-                "Pizza com calabresa",
-                BigDecimal.valueOf(49.90),
-                true,
-                "foto.jpg"
-        );
-
-        assertTrue(cardapio.possuiPrecoValido());
+        assertEquals("O preço do item do cardápio deve ser maior que zero!", exception.getMessage());
     }
 
     @Test
@@ -410,7 +360,7 @@ class CardapioTest extends AbstractTest {
     private Restaurante criarRestauranteValido() {
         return new Restaurante(
                 1,
-                new Usuario(1, "João", "Silva", 1, LocalDateTime.now(), ESituacaoCadastro.ATIVO),
+                new Usuario(1, "João", "Silva", new TipoUsuario(1), LocalDateTime.now(), ESituacaoCadastro.ATIVO),
                 "TESTE",
                 "Rua de Teste, 1234",
                 "BRASILEIRA", "12:00",

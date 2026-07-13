@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.usecase;
+package br.com.fiap.restauranteapi.usecase.cardapio;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
@@ -22,13 +22,11 @@ class DeletarCardapioUseCaseTest extends AbstractTest {
 
     @Test
     void executarTestComCardapioInexistente() {
-        Assertions.assertThrows(RegistroNaoEncontradoException.class,
-                () -> deletarCardapioUseCase.executar(999, 1));
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> deletarCardapioUseCase.executar(999, 1));
     }
 
     @Test
     void executarTestComUsuarioNaoDono() {
-        Assertions.assertThrows(RegraDeNegocioException.class,
-                () -> deletarCardapioUseCase.executar(1, 2));
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> deletarCardapioUseCase.executar(1, 2));
     }
 }

@@ -109,8 +109,7 @@ public class Restaurante {
         try {
             return LocalTime.parse(horario);
         } catch (DateTimeParseException e) {
-            throw new RegraDeNegocioException(
-                    "A hora de " + campo + " do Restaurante é inválida! Formato esperado: HH:mm.");
+            throw new RegraDeNegocioException("A hora de " + campo + " do Restaurante é inválida! Formato esperado: HH:mm.");
         }
     }
 }

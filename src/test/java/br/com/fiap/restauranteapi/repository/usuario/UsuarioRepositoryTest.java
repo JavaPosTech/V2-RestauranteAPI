@@ -1,4 +1,4 @@
-package br.com.fiap.restauranteapi.repository;
+package br.com.fiap.restauranteapi.repository.usuario;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
 import br.com.fiap.restauranteapi.core.enums.ESituacaoCadastro;
@@ -20,20 +20,11 @@ class UsuarioRepositoryTest extends AbstractTest {
 
         Assertions.assertNotNull(usuarios);
         Assertions.assertFalse(usuarios.isEmpty());
-
-        Assertions.assertTrue(
-                usuarios.stream().allMatch(usuario ->
-                        usuario.getSituacaoCadastroId() != null
-                )
-        );
+        Assertions.assertTrue(usuarios.stream().allMatch(usuario -> usuario.getSituacaoCadastroId() != null));
     }
     @Test
     void findByIdAndSituacaoCadastroIdTest() {
-        var usuario = usuarioRepository.findByIdAndSituacaoCadastroId(
-                1,
-                ESituacaoCadastro.ATIVO.getCodigo()
-        );
-
+        var usuario = usuarioRepository.findByIdAndSituacaoCadastroId(1, ESituacaoCadastro.ATIVO.getCodigo());
         Assertions.assertTrue(usuario.isPresent());
     }
 }

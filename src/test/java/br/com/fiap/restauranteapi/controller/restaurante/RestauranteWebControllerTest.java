@@ -12,6 +12,11 @@ class RestauranteWebControllerTest extends AbstractControllerTest {
 
     @Test
     void listarTest() throws Exception {
+        testGet("/v1/restaurante");
+    }
+
+    @Test
+    void buscarPorIdTest() throws Exception {
         testGet("/v1/restaurante/1");
     }
 

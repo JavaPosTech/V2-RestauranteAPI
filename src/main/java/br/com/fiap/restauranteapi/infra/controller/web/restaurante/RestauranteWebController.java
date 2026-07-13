@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/restaurante")
@@ -19,9 +21,14 @@ public class RestauranteWebController {
 
     private final RestauranteController restauranteController;
 
+    @GetMapping
+    public ResponseEntity<List<RestauranteDTO>> buscar() {
+        return ResponseEntity.ok(restauranteController.buscar());
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<RestauranteDTO> buscar(@PathVariable Integer id) {
-        return ResponseEntity.ok(restauranteController.buscar(id));
+    public ResponseEntity<RestauranteDTO> buscarPorId(@PathVariable Integer id) {
+        return ResponseEntity.ok(restauranteController.buscarPorId(id));
     }
 
     @PostMapping
