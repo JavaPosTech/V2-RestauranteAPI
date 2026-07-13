@@ -6,6 +6,7 @@ import br.com.fiap.restauranteapi.core.dto.usuario.UsuarioDTO;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.usuario.UsuarioMapper;
 import br.com.fiap.restauranteapi.infra.controller.dto.usuario.AtualizarUsuarioRequest;
 import br.com.fiap.restauranteapi.infra.controller.dto.usuario.UsuarioRequest;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/usuario")
+@Tag(name = "Usuário", description = "Endpoints para gerenciamento de usuários")
 public class UsuarioWebController {
 
     private final UsuarioController usuarioController;

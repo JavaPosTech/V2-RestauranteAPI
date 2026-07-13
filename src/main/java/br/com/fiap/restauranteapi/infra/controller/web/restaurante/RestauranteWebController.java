@@ -6,6 +6,7 @@ import br.com.fiap.restauranteapi.core.dto.restaurante.RestauranteDTO;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.restaurante.RestauranteMapper;
 import br.com.fiap.restauranteapi.infra.controller.dto.restaurante.RestauranteDeleteRequest;
 import br.com.fiap.restauranteapi.infra.controller.dto.restaurante.RestauranteRequest;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/restaurante")
+@Tag(name = "Restaurante", description = "Endpoints para gerenciamento de restaurantes")
 public class RestauranteWebController {
 
     private final RestauranteController restauranteController;

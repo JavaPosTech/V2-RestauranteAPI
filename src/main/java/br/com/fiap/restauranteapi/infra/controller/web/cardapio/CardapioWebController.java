@@ -6,6 +6,7 @@ import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.cardapio.CardapioMapper;
 import br.com.fiap.restauranteapi.infra.controller.dto.cardapio.CardapioDeleteRequest;
 import br.com.fiap.restauranteapi.infra.controller.dto.cardapio.CardapioRequest;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/cardapio")
+@Tag(name = "Cardápio", description = "Endpoints para gerenciamento de cardápios")
 public class CardapioWebController {
 
     private final CardapioController cardapioController;

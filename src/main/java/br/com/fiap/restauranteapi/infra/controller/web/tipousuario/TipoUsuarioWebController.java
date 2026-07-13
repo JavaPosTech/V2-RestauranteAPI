@@ -5,6 +5,7 @@ import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.core.dto.tipousuario.TipoUsuarioDTO;
 import br.com.fiap.restauranteapi.infra.adapter.mapper.tipousuario.TipoUsuarioMapper;
 import br.com.fiap.restauranteapi.infra.controller.dto.tipousuario.TipoUsuarioRequest;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/tipousuario")
+@Tag(name = "Tipo de Usuário", description = "Endpoints para gerenciamento de tipos de usuário")
 public class TipoUsuarioWebController {
 
     private final TipoUsuarioController tipoUsuarioController;
