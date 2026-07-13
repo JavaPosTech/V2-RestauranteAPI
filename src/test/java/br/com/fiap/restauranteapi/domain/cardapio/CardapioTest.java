@@ -341,40 +341,6 @@ class CardapioTest extends AbstractTest {
     }
 
     @Test
-    void deveVerificarSeCardapioPertenceAoRestaurante() {
-        Restaurante restaurante = criarRestauranteValido();
-
-        Cardapio cardapio = new Cardapio(
-                1,
-                restaurante,
-                "Pizza Calabresa",
-                "Pizza com calabresa",
-                BigDecimal.valueOf(49.90),
-                true,
-                "foto.jpg"
-        );
-
-        assertTrue(cardapio.pertenceAoRestaurante(1));
-    }
-
-    @Test
-    void deveRetornarFalsoQuandoCardapioNaoPertenceAoRestaurante() {
-        Restaurante restaurante = criarRestauranteValido();
-
-        Cardapio cardapio = new Cardapio(
-                1,
-                restaurante,
-                "Pizza Calabresa",
-                "Pizza com calabresa",
-                BigDecimal.valueOf(49.90),
-                true,
-                "foto.jpg"
-        );
-
-        assertFalse(cardapio.pertenceAoRestaurante(2));
-    }
-
-    @Test
     void deveVerificarSePermiteConsumoLocal() {
         Restaurante restaurante = criarRestauranteValido();
 

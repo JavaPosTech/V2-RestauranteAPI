@@ -56,10 +56,6 @@ public class Cardapio {
         this.foto = foto;
     }
 
-    public boolean pertenceAoRestaurante(Integer restauranteId) {
-        return restaurante.getId().equals(restauranteId);
-    }
-
     public boolean permiteConsumoLocal() {
         return consumoLocal;
     }
