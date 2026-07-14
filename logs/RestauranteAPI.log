@@ -1,0 +1,41 @@
+00:03:14.723 [main] INFO  RestauranteAPIApplication - Starting RestauranteAPIApplication v1.0.0 using Java 21.0.11 with PID 1 (/app/RestauranteAPI.jar started by root in /app)
+00:03:14.731 [main] INFO  RestauranteAPIApplication - The following 1 profile is active: "prod"
+00:03:14.932 [background-preinit] INFO  Version - HV000001: Hibernate Validator 9.0.1.Final
+00:03:15.253 [main] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+00:03:15.307 [main] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 43 ms. Found 4 JPA repository interfaces.
+00:03:15.686 [main] INFO  TomcatWebServer - Tomcat initialized with port 9027 (http)
+00:03:15.695 [main] INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9027"]
+00:03:15.697 [main] INFO  StandardService - Starting service [Tomcat]
+00:03:15.697 [main] INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
+00:03:15.718 [main] INFO  WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 945 ms
+00:03:15.907 [main] INFO  HikariDataSource - HikariPool-1 - Starting...
+00:03:16.002 [main] INFO  HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6785c9fa
+00:03:16.003 [main] INFO  HikariDataSource - HikariPool-1 - Start completed.
+00:03:16.026 [main] INFO  FlywayExecutor - Database: jdbc:postgresql://postgres:5432/postgres (PostgreSQL 18.4)
+00:03:16.049 [main] INFO  JdbcTableSchemaHistory - Schema history table "public"."flyway_schema_history" does not exist yet
+00:03:16.052 [main] INFO  DbValidate - Successfully validated 2 migrations (execution time 00:00.010s)
+00:03:16.059 [main] INFO  Flyway - All configured schemas are empty; baseline operation skipped. A baseline or migration script with a lower version than the baseline version may execute if available. Check the Schemas parameter if this is not intended.
+00:03:16.062 [main] INFO  JdbcTableSchemaHistory - Creating Schema History table "public"."flyway_schema_history" ...
+00:03:16.096 [main] INFO  DbMigrate - Current version of schema "public": << Empty Schema >>
+00:03:16.107 [main] INFO  DbMigrate - Migrating schema "public" to version "1.0 - CreateTables"
+00:03:16.130 [main] INFO  DbMigrate - Migrating schema "public" to version "1.1 - Inserts"
+00:03:16.145 [main] INFO  DbMigrate - Successfully applied 2 migrations to schema "public", now at version v1.1 (execution time 00:00.014s)
+00:03:16.214 [main] INFO  jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+00:03:16.267 [main] INFO  core - HHH000001: Hibernate ORM core version 7.2.7.Final
+00:03:16.525 [main] INFO  SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+00:03:17.104 [main] INFO  core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+00:03:17.110 [main] INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+00:03:17.152 [main] INFO  QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+00:03:17.689 [main] INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-9027"]
+00:03:17.702 [main] INFO  TomcatWebServer - Tomcat started on port 9027 (http) with context path '/RestauranteAPI'
+00:03:17.707 [main] INFO  RestauranteAPIApplication - Started RestauranteAPIApplication in 3.278 seconds (process running for 3.848)
+00:03:17.711 [main] WARN  SpringDocAppInitializer - SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+00:03:17.711 [main] WARN  SpringDocAppInitializer - SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+00:03:45.546 [http-nio-9027-exec-2] INFO  [/RestauranteAPI] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+00:03:45.547 [http-nio-9027-exec-2] INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+00:03:45.550 [http-nio-9027-exec-2] INFO  DispatcherServlet - Completed initialization in 1 ms
+00:03:58.686 [SpringApplicationShutdownHook] INFO  GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+00:03:58.688 [tomcat-shutdown] INFO  GracefulShutdown - Graceful shutdown complete
+00:03:58.691 [SpringApplicationShutdownHook] INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+00:03:58.693 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown initiated...
+00:03:58.695 [SpringApplicationShutdownHook] INFO  HikariDataSource - HikariPool-1 - Shutdown completed.

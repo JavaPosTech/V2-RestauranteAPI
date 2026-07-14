@@ -313,7 +313,7 @@
                   }
                 },
                 "url": {
-                  "raw": "{{URL}}/v1/restaurante/5",
+                  "raw": "{{URL}}/v1/restaurante/1",
                   "host": [
                     "{{URL}}"
                   ],
@@ -355,7 +355,7 @@
                 "method": "GET",
                 "header": [],
                 "url": {
-                  "raw": "{{URL}}/v1/cardapio/restaurante/1",
+                  "raw": "{{URL}}/v1/cardapio/restaurante/2",
                   "host": [
                     "{{URL}}"
                   ],
@@ -376,7 +376,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"restauranteId\": 1,\r\n  \"usuarioId\": 1,\r\n  \"nome\": \"Filé à Parmegiana\",\r\n  \"descricao\": \"Filé bovino empanado com molho de tomate, queijo gratinado, arroz e fritas.\",\r\n  \"preco\": 59.90,\r\n  \"consumoLocal\": true,\r\n  \"foto\": \"https://exemplo.com/imagens/file-parmegiana.jpg\"\r\n}",
+                  "raw": "{\r\n  \"restauranteId\": 2,\r\n  \"usuarioId\": 2,\r\n  \"nome\": \"Filé à Parmegiana\",\r\n  \"descricao\": \"Filé bovino empanado com molho de tomate, queijo gratinado, arroz e fritas.\",\r\n  \"preco\": 59.90,\r\n  \"consumoLocal\": true,\r\n  \"foto\": \"https://exemplo.com/imagens/file-parmegiana.jpg\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -403,7 +403,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"restauranteId\": 1,\r\n  \"usuarioId\": 1,\r\n  \"nome\": \"Filé à Parmegiana Especial\",\r\n  \"descricao\": \"Filé bovino empanado\",\r\n  \"preco\": 64.90,\r\n  \"consumoLocal\": false,\r\n  \"foto\": \"https://exemplo.com/imagens/file-parmegiana-especial.jpg\"\r\n}",
+                  "raw": "{\r\n  \"restauranteId\": 2,\r\n  \"usuarioId\": 2,\r\n  \"nome\": \"Filé à Parmegiana Especial\",\r\n  \"descricao\": \"Filé bovino empanado\",\r\n  \"preco\": 64.90,\r\n  \"consumoLocal\": false,\r\n  \"foto\": \"https://exemplo.com/imagens/file-parmegiana-especial.jpg\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -431,7 +431,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"usuarioId\": \"1\"\r\n}",
+                  "raw": "{\r\n    \"usuarioId\": \"2\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
