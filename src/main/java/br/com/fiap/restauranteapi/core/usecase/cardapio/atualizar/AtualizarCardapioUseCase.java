@@ -5,16 +5,19 @@ import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
 import br.com.fiap.restauranteapi.core.dto.response.MensagemSucessoResponse;
 import br.com.fiap.restauranteapi.core.gateway.cardapio.CardapioGateway;
 import br.com.fiap.restauranteapi.core.gateway.restaurante.RestauranteGateway;
+import br.com.fiap.restauranteapi.core.gateway.usuario.UsuarioGateway;
 import br.com.fiap.restauranteapi.core.usecase.cardapio.CardapioAbstractUseCase;
 
 public class AtualizarCardapioUseCase extends CardapioAbstractUseCase {
 
-    public AtualizarCardapioUseCase(CardapioGateway cardapioGateway, RestauranteGateway restauranteGateway) {
-        super(cardapioGateway, restauranteGateway);
+    public AtualizarCardapioUseCase(UsuarioGateway usuarioGateway, CardapioGateway cardapioGateway, RestauranteGateway restauranteGateway) {
+        super(usuarioGateway, cardapioGateway, restauranteGateway);
     }
 
     public MensagemSucessoResponse executar(Integer id, Cardapio cardapio) {
         Cardapio cardapioExistente = buscarCardapioPorId(id);
+
+        validarTipoUsuario(cardapio.getRestaurante().getUsuario().getId());
 
         validarCardapioPertenceAoRestaurante(cardapioExistente, cardapio.getRestaurante().getId());
 

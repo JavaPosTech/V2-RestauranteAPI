@@ -65,7 +65,7 @@ public class Restaurante {
     }
 
     public boolean pertenceAoUsuario(Integer usuarioId) {
-        return !this.usuario.getId().equals(usuarioId);
+        return this.usuario.getId().equals(usuarioId);
     }
 
     private void validarUsuarioObrigatorio(Usuario usuario) {

@@ -34,7 +34,7 @@ public abstract class RestauranteAbstractUseCase {
     }
 
     protected void validarDonoRestaurante(Restaurante restauranteExistente, Integer usuarioId) {
-        if (restauranteExistente.pertenceAoUsuario(usuarioId)) {
+        if (!restauranteExistente.pertenceAoUsuario(usuarioId)) {
             log.error("Usuário {} tentou alterar o Restaurante sem ser o Dono!", usuarioId);
             throw new RegraDeNegocioException("Somente o Dono do Restaurante pode alterar ou remover o Restaurante!");
         }

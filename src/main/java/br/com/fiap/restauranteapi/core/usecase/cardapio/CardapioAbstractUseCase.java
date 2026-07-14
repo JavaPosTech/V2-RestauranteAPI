@@ -2,20 +2,38 @@ package br.com.fiap.restauranteapi.core.usecase.cardapio;
 
 import br.com.fiap.restauranteapi.core.domain.cardapio.Cardapio;
 import br.com.fiap.restauranteapi.core.domain.restaurante.Restaurante;
+import br.com.fiap.restauranteapi.core.enums.ETipoUsuario;
 import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.exceptions.RegraDeNegocioException;
 import br.com.fiap.restauranteapi.core.gateway.cardapio.CardapioGateway;
 import br.com.fiap.restauranteapi.core.gateway.restaurante.RestauranteGateway;
+import br.com.fiap.restauranteapi.core.gateway.usuario.UsuarioGateway;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.Objects;
 
 @Slf4j
 @RequiredArgsConstructor
 public abstract class CardapioAbstractUseCase {
 
+    protected final UsuarioGateway usuarioGateway;
+
     protected final CardapioGateway cardapioGateway;
 
     protected final RestauranteGateway restauranteGateway;
+
+    protected void validarTipoUsuario(Integer usuarioId) {
+        var usuario = usuarioGateway.findById(usuarioId).orElseThrow(() -> {
+            log.error("O Usuário informado não foi encontrado! ID: {}", usuarioId);
+            return new RegistroNaoEncontradoException("O Usuário informado não foi encontrado!");
+        });
+
+        if (!Objects.equals(usuario.getTipoUsuario().getId(), ETipoUsuario.DONO_RESTAURANTE.getId())) {
+            log.error("Somente Usuários do Tipo Dono de Restaurante podem alterar um Cardápio! ID: {}", usuarioId);
+            throw new RegraDeNegocioException("Somente Usuários do Tipo Dono de Restaurante podem alterar um Cardápio!");
+        }
+    }
 
     protected Restaurante buscarRestaurantePorId(Integer restauranteId) {
         return restauranteGateway.findById(restauranteId).orElseThrow(() -> {
