@@ -16,6 +16,8 @@ public class AtualizarCardapioUseCase extends CardapioAbstractUseCase {
     public MensagemSucessoResponse executar(Integer id, Cardapio cardapio) {
         Cardapio cardapioExistente = buscarCardapioPorId(id);
 
+        validarCardapioPertenceAoRestaurante(cardapioExistente, cardapio.getRestaurante().getId());
+
         Restaurante restaurante = buscarRestaurantePorId(cardapioExistente.getRestaurante().getId());
 
         validarDonoRestaurante(restaurante, cardapio.getRestaurante().getUsuario().getId());

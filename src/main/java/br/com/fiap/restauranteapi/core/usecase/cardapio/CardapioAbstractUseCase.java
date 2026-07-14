@@ -37,4 +37,11 @@ public abstract class CardapioAbstractUseCase {
             throw new RegraDeNegocioException("Somente o Dono do Restaurante pode alterar o Cardápio!");
         }
     }
+
+    protected void validarCardapioPertenceAoRestaurante(Cardapio cardapio, Integer restauranteId) {
+        if (!cardapio.getRestaurante().getId().equals(restauranteId)) {
+            log.error("O Item do Cardápio: [{}] não pertence ao Restaurante: [{}]", cardapio.getId(), restauranteId);
+            throw new RegraDeNegocioException("O Item do Cardápio não pertence ao Restaurante informado!");
+        }
+    }
 }
