@@ -1,6 +1,7 @@
 package br.com.fiap.restauranteapi.usecase.cardapio;
 
 import br.com.fiap.restauranteapi.config.AbstractTest;
+import br.com.fiap.restauranteapi.core.exceptions.RegistroNaoEncontradoException;
 import br.com.fiap.restauranteapi.core.usecase.cardapio.listar.ListarCardapioUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -28,5 +29,10 @@ class ListarCardapioUseCaseTest extends AbstractTest {
         Assertions.assertNotNull(cardapios);
         Assertions.assertFalse(cardapios.isEmpty());
         Assertions.assertTrue(cardapios.stream().allMatch(cardapio -> cardapio.restauranteId().equals(1)));
+    }
+
+    @Test
+    void executarPorRestauranteInexistenteTest() {
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> listarCardapioUseCase.executarPorRestaurante(Integer.MAX_VALUE));
     }
 }

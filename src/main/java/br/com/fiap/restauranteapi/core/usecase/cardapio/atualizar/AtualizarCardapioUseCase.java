@@ -25,8 +25,8 @@ public class AtualizarCardapioUseCase extends CardapioAbstractUseCase {
         cardapioGateway.save(new Cardapio(
                 id,
                 restaurante,
-                cardapio.getNome(),
-                cardapio.getDescricao(),
+                cardapio.getNome().toUpperCase(),
+                cardapio.getDescricao().toUpperCase(),
                 cardapio.getPreco(),
                 cardapio.isConsumoLocal(),
                 cardapio.getFoto()));

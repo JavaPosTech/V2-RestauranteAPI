@@ -20,6 +20,26 @@ class AtualizarCardapioUseCaseTest extends AbstractTest {
     @Autowired
     private AtualizarCardapioUseCase atualizarCardapioUseCase;
 
+    @Test
+    void executarTest() {
+        Assertions.assertDoesNotThrow(() -> atualizarCardapioUseCase.executar(1, cardapioValido(1)));
+    }
+
+    @Test
+    void executarTestComCardapioInexistente() {
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarCardapioUseCase.executar(999, cardapioValido(1)));
+    }
+
+    @Test
+    void executarTestComUsuarioNaoDono() {
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> atualizarCardapioUseCase.executar(1, cardapioValido(2)));
+    }
+
+    @Test
+    void executarTestCardapioNaoPertenceAoRestaurante() {
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> atualizarCardapioUseCase.executar(1, cardapioInvalido(2)));
+    }
+
     private Cardapio cardapioValido(Integer usuarioId) {
         Usuario usuario = new Usuario(usuarioId);
         Restaurante restaurante = new Restaurante(1, usuario);
@@ -35,18 +55,18 @@ class AtualizarCardapioUseCaseTest extends AbstractTest {
         );
     }
 
-    @Test
-    void executarTest() {
-        Assertions.assertDoesNotThrow(() -> atualizarCardapioUseCase.executar(1, cardapioValido(1)));
-    }
+    private Cardapio cardapioInvalido(Integer usuarioId) {
+        Usuario usuario = new Usuario(usuarioId);
+        Restaurante restaurante = new Restaurante(2, usuario);
 
-    @Test
-    void executarTestComCardapioInexistente() {
-        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarCardapioUseCase.executar(999, cardapioValido(1)));
-    }
-
-    @Test
-    void executarTestComUsuarioNaoDono() {
-        Assertions.assertThrows(RegraDeNegocioException.class, () -> atualizarCardapioUseCase.executar(1, cardapioValido(2)));
+        return new Cardapio(
+                null,
+                restaurante,
+                "Feijoada Especial",
+                "Feijoada completa com arroz, couve e farofa",
+                BigDecimal.valueOf(45.90),
+                true,
+                "feijoada-especial.jpg"
+        );
     }
 }

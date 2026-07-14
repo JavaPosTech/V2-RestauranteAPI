@@ -376,7 +376,7 @@
                 "header": [],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"restauranteId\": 2,\r\n  \"usuarioId\": 2,\r\n  \"nome\": \"Filé à Parmegiana\",\r\n  \"descricao\": \"Filé bovino empanado com molho de tomate, queijo gratinado, arroz e fritas.\",\r\n  \"preco\": 59.90,\r\n  \"consumoLocal\": true,\r\n  \"foto\": \"https://exemplo.com/imagens/file-parmegiana.jpg\"\r\n}",
+                  "raw": "{\r\n  \"restauranteId\": 2,\r\n  \"usuarioId\": 2,\r\n  \"nome\": \"File a Parmegiana\",\r\n  \"descricao\": \"File bovino empanado com molho de tomate, queijo gratinado, arroz e fritas\",\r\n  \"preco\": 59.90,\r\n  \"consumoLocal\": true,\r\n  \"foto\": \"https://exemplo.com/imagens/file-parmegiana.jpg\"\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
