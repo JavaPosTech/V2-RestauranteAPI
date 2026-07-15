@@ -27,12 +27,17 @@ class AtualizarCardapioUseCaseTest extends AbstractTest {
 
     @Test
     void executarTestComCardapioInexistente() {
-        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarCardapioUseCase.executar(999, cardapioValido(1)));
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarCardapioUseCase.executar(Integer.MAX_VALUE, cardapioValido(1)));
     }
 
     @Test
     void executarTestComUsuarioNaoDono() {
-        Assertions.assertThrows(RegraDeNegocioException.class, () -> atualizarCardapioUseCase.executar(1, cardapioValido(2)));
+        Assertions.assertThrows(RegraDeNegocioException.class, () -> atualizarCardapioUseCase.executar(1, cardapioValido(5)));
+    }
+
+    @Test
+    void executarTestCardapioUsuarioInexistente() {
+        Assertions.assertThrows(RegistroNaoEncontradoException.class, () -> atualizarCardapioUseCase.executar(1, cardapioInvalido(Integer.MAX_VALUE)));
     }
 
     @Test

@@ -161,7 +161,7 @@ class RestauranteTest extends AbstractTest {
                 "22:00",
                 LocalDateTime.now());
 
-        Assertions.assertFalse(restaurante.pertenceAoUsuario(1));
+        Assertions.assertTrue(restaurante.pertenceAoUsuario(1));
     }
 
     @Test
@@ -175,6 +175,6 @@ class RestauranteTest extends AbstractTest {
                 "22:00",
                 LocalDateTime.now());
 
-        Assertions.assertTrue(restaurante.pertenceAoUsuario(2));
+        Assertions.assertFalse(restaurante.pertenceAoUsuario(2));
     }
 }
